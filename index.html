@@ -2,19 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Copper Packages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.4; margin: 2rem; max-width: 900px; }
-    pre { background: #f6f8fa; padding: 1rem; border-radius: 6px; overflow-x: auto; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-  </style>
+  <meta name="theme-color" content="#111110">
+  <meta name="description" content="The official Copper Linux ingot package repository. Browse package metadata, access repository resources, and contribute tools.">
+  <title>ingot Repository</title>
+
+ 
 </head>
+
 <body>
-  <h1>Copper Linux Package Repository (ingot)</h1>
-  <p>This repository hosts package metadata for <code>ingot</code>, Copper Linux's package manager.</p>
-  <p>Index: <a href="iso/copper/pkg/index.json">iso/copper/pkg/index.json</a></p>
-  <p>Read more: <a href="README.md">README.md</a></p>
-  <p>See the ingot contract in the Copper source (installed at <code>/usr/bin/ingot</code>).</p>
+  <main class="container">
+    <h1>Copper's pkg manager - Ingot<br><span>Package Repository.</span></h1>
+
+    <p class="intro">
+      A home for *ingot*, Copper Linux's package manager.
+    </p>
+
+    <section aria-labelledby="resources-heading">
+      <h2 class="section-label" id="resources-heading">
+        Repository Resources
+      </h2>
+
+      <div class="resource-grid">
+        <a class="resource-card" href="iso/copper/pkg/index.json">
+          <strong>Index.json</strong> </a>
+          <p>repository's package metadata in JSON format.</p>
+
+        <a class="resource-card" href="README.md">
+          <strong>README.md</strong> </a>
+          <p>Read the repository README and learn how ingot works.</p>
+      </div>
+    </section>
+
+      <h2 id="contribute-heading">Got a tool worth packaging?</h2>
+
+      <p>
+        Help expand the Copper Linux ecosystem. Submit a pull request
+        to propose a tool 
+      </p>
+
+      <a
+        class="button"
+        href="https://github.com/copper-linux/ingot/pulls"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Contribute on GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Copper Linux</span>
+      <br>
+      <span>Copper's pkg manager</span>
+    </div>
+  </footer>
 </body>
 </html>
