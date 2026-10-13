@@ -5,5 +5,5 @@
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/htop-3.3.0-4build1.tar.gz",
   "sha256": "04b06a12e934b17b4408c66883b027e4c5b8af1e7ca41f14c1bc159673d419a6",
   "size": 6064550,
-  "depends": []
+  "depends": ["ncurses-base"]
 }

@@ -5,5 +5,5 @@
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/nano-7.2-2ubuntu0.2.tar.gz",
   "sha256": "54affdc5291e94502ba66f3e0c560cb9ebccee90e00cec812a9bd8cae32d75bf",
   "size": 6122105,
-  "depends": []
+  "depends": ["ncurses-base"]
 }

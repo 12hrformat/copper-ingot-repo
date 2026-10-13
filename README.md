@@ -109,11 +109,12 @@ order does not matter; field **names** must match exactly.
 | libpcap | libs | 1.11.0-1 | — |
 | libpcre2-8-0 | libs | 10.42-4ubuntu2.1 | — |
 | libpng16-16t64 | libs | 1.6.43-5ubuntu0.7 | — |
-| libreadline8t64 | libs | 8.2-4build1 | — |
+| libreadline8t64 | libs | 8.2-4build1 | ncurses-base |
 | libsqlite3-0 | libs | 3.45.1-1ubuntu2.8 | — |
 | libssl3t64 | libs | 3.0.13-0ubuntu3.16 | — |
 | libxml2 | libs | 2.9.14+dfsg-1.3ubuntu3.10 | — |
 | libzstd1 | libs | 1.5.5+dfsg2-2build1.1 | — |
+| ncurses-base | libs | 6.4+20240113-1ubuntu2.2 | — |
 | zlib1g | libs | 1:1.3.dfsg-3.1ubuntu2.2 | — |
 | discord | network | 1.0.161 | — |
 | tcpdump | network | 4.99.7-1 | libpcap |
@@ -128,26 +129,26 @@ order does not matter; field **names** must match exactly.
 | firefox | tools | 157.0.1-1 | — |
 | fzf | tools | 0.44.1-1ubuntu0.3 | — |
 | git | tools | 1:2.43.0-1ubuntu7.3 | — |
-| htop | tools | 3.3.0-4build1 | — |
+| htop | tools | 3.3.0-4build1 | ncurses-base |
 | jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
-| less | tools | 590-2ubuntu2.1 | — |
+| less | tools | 590-2ubuntu2.1 | ncurses-base |
 | lsof | tools | 4.95.0-1build3 | — |
 | mousepad | tools | 0.6.1-1build2 | — |
-| nano | tools | 7.2-2ubuntu0.2 | — |
-| ncdu | tools | 1.19-0.1 | — |
+| nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
+| ncdu | tools | 1.19-0.1 | ncurses-base |
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
 | rsync | tools | 3.2.7-1ubuntu1.5 | — |
 | strace | tools | 6.8-0ubuntu2 | — |
-| tmux | tools | 3.4-1ubuntu0.1 | — |
+| tmux | tools | 3.4-1ubuntu0.1 | ncurses-base |
 | tree | tools | 2.3.2-1 | — |
 | unzip | tools | 6.0-28ubuntu4.1 | — |
-| vim-tiny | tools | 2:9.1.0016-1ubuntu7.20 | — |
+| vim-tiny | tools | 2:9.1.0016-1ubuntu7.20 | ncurses-base |
 | wget | tools | 1.21.4-1ubuntu4.5 | — |
 | xarchiver | tools | 1:0.5.4.22-1build2 | — |
 | xfce4-taskmanager | tools | 1.5.7-1build1 | — |
 | zip | tools | 3.0-13ubuntu0.2 | — |
-| zsh | tools | 5.9-6ubuntu2 | — |
+| zsh | tools | 5.9-6ubuntu2 | ncurses-base |
 
 All payloads are x86_64 Linux (glibc). They come from two build styles:
 
@@ -162,11 +163,20 @@ All payloads are x86_64 Linux (glibc). They come from two build styles:
   and `fastfetch` are packaged from the vendor `.deb`, since neither is in any
   apt repo.
 
-Because the deb-based payloads bundle their closure, `depends` is empty for
-them — the libraries are already inside the tarball. `tcpdump` and `nmap` keep
-the older split style: both binaries have `libpcap.so.1` as a dynamic `NEEDED`
-entry, and their pages carry `"depends": ["libpcap"]`, so
-`ingot install tcpdump` (or `nmap`) installs `libpcap` first.
+Because the deb-based payloads bundle their closure, `depends` is mostly empty
+for them — the libraries are already inside the tarball. There are two
+exceptions:
+
+- `tcpdump` and `nmap` keep the older split style: both binaries have
+  `libpcap.so.1` as a dynamic `NEEDED` entry, and their pages carry
+  `"depends": ["libpcap"]`, so `ingot install tcpdump` (or `nmap`) installs
+  `libpcap` first.
+- The ncurses programs (`nano`, `less`, `vim-tiny`, `htop`, `ncdu`, `tmux`,
+  `zsh`) and the `libreadline8t64` library depend on `ncurses-base`. ncurses
+  reads the terminfo database at runtime, and terminfo ships in `ncurses-base` —
+  an `Essential: yes` package that a closure walk against an empty dpkg status
+  never pulls in. Without it any full-screen program dies with
+  `Error opening terminal: linux.` on the VGA console.
 
 `neofetch` was dropped in favour of `fastfetch`: it is a bash script and the
 image has no `bash`, so it installed but could not run at all. `fastfetch` is a

@@ -5,5 +5,5 @@
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/vim-tiny-2_9.1.0016-1ubuntu7.20.tar.gz",
   "sha256": "1594a8a930c1162bbdb1f773f1437de981d26eea3822c55509cd88b35c21bfb3",
   "size": 7377987,
-  "depends": []
+  "depends": ["ncurses-base"]
 }

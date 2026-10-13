@@ -28,6 +28,7 @@
   "mousepad": "tools",
   "nano": "tools",
   "ncdu": "tools",
+  "ncurses-base": "libs",
   "nmap": "hacking",
   "ripgrep": "tools",
   "ristretto": "tools",

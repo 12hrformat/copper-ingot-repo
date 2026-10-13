@@ -1,0 +1,9 @@
+{
+  "name": "ncurses-base",
+  "version": "6.4+20240113-1ubuntu2.2",
+  "category": "libs",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/ncurses-base-6.4+20240113-1ubuntu2.2.tar.gz",
+  "sha256": "fb516c1001c98c2373b349956fdbf7011b931c30867b52634b10d457f29d265a",
+  "size": 26993,
+  "depends": []
+}
