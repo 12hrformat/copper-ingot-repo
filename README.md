@@ -1,11 +1,11 @@
-# copper-pages
+# copper-ingot-repo
 
 the package repos
 
 Default repo URL (used by ingot unless `INGOT_REPO` or `/etc/ingot.conf`
 overrides it):
 
-    https://12hrformat.github.io/copper-pages
+    https://12hrformat.github.io/copper-ingot-repo
 
 ## Layout
 
@@ -52,7 +52,7 @@ not a JSON parser.
   "name": "tcpdump",
   "version": "4.99.7-1",
   "category": "network",
-  "url": "https://github.com/12hrformat/copper-pages/releases/download/payloads-v1/tcpdump-4.99.7-1.tar.gz",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/tcpdump-4.99.7-1.tar.gz",
   "sha256": "6ae1d621c17e1931747ad6fdb31e67e8f7299437b589ed66ec580cc2d2b0e8a2",
   "depends": ["libpcap"]
 }
@@ -76,7 +76,7 @@ order does not matter; field **names** must match exactly.
 
 - `url` points at a `.tar.gz` attached to a **GitHub Release** of this repo
   (Pages never holds binaries) and must be reachable with no auth:
-  `https://github.com/12hrformat/copper-pages/releases/download/<tag>/<asset>`
+  `https://github.com/12hrformat/copper-ingot-repo/releases/download/<tag>/<asset>`
 - `sha256` is the SHA-256 of that exact tarball's bytes:
 
       sha256sum <file> | awk '{print $1}'
@@ -196,7 +196,7 @@ image.
          "name": "hello",
          "version": "1.0-1",
          "category": "tools",
-         "url": "https://github.com/12hrformat/copper-pages/releases/download/payloads-v1/hello-1.0-1.tar.gz",
+         "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/hello-1.0-1.tar.gz",
          "sha256": "<64-char hex of the payload tarball>",
          "depends": []
        }
@@ -214,7 +214,7 @@ Point ingot at the site and install into a scratch root — it never touches
 your real filesystem this way (`ingot` is
 `iso/rootfs-overlay/usr/bin/ingot` in `12hrformat/copper`):
 
-    INGOT_REPO="https://12hrformat.github.io/copper-pages" \
+    INGOT_REPO="https://12hrformat.github.io/copper-ingot-repo" \
     INGOT_ROOT="$PWD/scratch" \
     sh ingot install tcpdump
 
