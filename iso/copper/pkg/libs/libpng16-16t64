@@ -1,0 +1,8 @@
+{
+  "name": "libpng16-16t64",
+  "version": "1.6.43-5ubuntu0.7",
+  "category": "libs",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libpng16-16t64-1.6.43-5ubuntu0.7.tar.gz",
+  "sha256": "efe9b4a8ee98148daa1b8c72bf179a540d0038aaa492e00a8aac9dcd9d9a11ff",
+  "depends": []
+}

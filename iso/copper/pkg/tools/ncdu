@@ -1,0 +1,8 @@
+{
+  "name": "ncdu",
+  "version": "1.19-0.1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/ncdu-1.19-0.1.tar.gz",
+  "sha256": "d002f36ed09bb2945d3ecfecdbe859fbcd48fb9621ec826510540fb141a5e95f",
+  "depends": []
+}

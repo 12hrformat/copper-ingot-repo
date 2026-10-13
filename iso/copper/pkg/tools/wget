@@ -1,0 +1,8 @@
+{
+  "name": "wget",
+  "version": "1.21.4-1ubuntu4.5",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/wget-1.21.4-1ubuntu4.5.tar.gz",
+  "sha256": "15c83d0275023aa1399bc60da9cad102e3d227d2fcecd00b3efe3be57491b256",
+  "depends": []
+}

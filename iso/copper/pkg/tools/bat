@@ -1,0 +1,8 @@
+{
+  "name": "bat",
+  "version": "0.24.0-1build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/bat-0.24.0-1build1.tar.gz",
+  "sha256": "b1e3573fc409e278e96647e6a6058e94fb9f98e9ebae087be5ab37a1a6b25ba9",
+  "depends": []
+}

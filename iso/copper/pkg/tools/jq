@@ -1,0 +1,8 @@
+{
+  "name": "jq",
+  "version": "1.7.1-3ubuntu0.24.04.2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/jq-1.7.1-3ubuntu0.24.04.2.tar.gz",
+  "sha256": "8b6cd46d433e2b4e2757c7bfaa25ca3864f2cf0a0342783cb43c8729ad0ba91a",
+  "depends": []
+}

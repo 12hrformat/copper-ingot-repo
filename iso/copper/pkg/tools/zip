@@ -1,0 +1,8 @@
+{
+  "name": "zip",
+  "version": "3.0-13ubuntu0.2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/zip-3.0-13ubuntu0.2.tar.gz",
+  "sha256": "b46aee570e48dae1ffe776d1e34d7e30c2dda14347c28eb1d0d3106aa0afadce",
+  "depends": []
+}

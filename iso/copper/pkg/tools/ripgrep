@@ -1,0 +1,8 @@
+{
+  "name": "ripgrep",
+  "version": "14.1.0-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/ripgrep-14.1.0-1.tar.gz",
+  "sha256": "40fec943a6754400603eeb37d39993bf7d012b9a84d8892dbd9f1c64727644e3",
+  "depends": []
+}

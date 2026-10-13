@@ -1,0 +1,8 @@
+{
+  "name": "neofetch",
+  "version": "7.1.0-4",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/neofetch-7.1.0-4.tar.gz",
+  "sha256": "6dc232d7ed7082551ea78ca05ee3c45b97da82f52d0ba52a1c230a717e28e081",
+  "depends": []
+}

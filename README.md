@@ -100,25 +100,73 @@ order does not matter; field **names** must match exactly.
 
 | package | category | version | depends |
 | --- | --- | --- | --- |
-| libpcap | libs | 1.11.0-1 | — |
 | nmap | hacking | 7.95-1 | libpcap |
+| liblzma5 | libs | 5.6.1+really5.4.5-1ubuntu0.3 | — |
+| libncurses6 | libs | 6.4+20240113-1ubuntu2.2 | — |
+| libpcap | libs | 1.11.0-1 | — |
+| libpcre2-8-0 | libs | 10.42-4ubuntu2.1 | — |
+| libpng16-16t64 | libs | 1.6.43-5ubuntu0.7 | — |
+| libreadline8t64 | libs | 8.2-4build1 | — |
+| libsqlite3-0 | libs | 3.45.1-1ubuntu2.8 | — |
+| libssl3t64 | libs | 3.0.13-0ubuntu3.16 | — |
+| libxml2 | libs | 2.9.14+dfsg-1.3ubuntu3.10 | — |
+| libzstd1 | libs | 1.5.5+dfsg2-2build1.1 | — |
+| zlib1g | libs | 1:1.3.dfsg-3.1ubuntu2.2 | — |
+| discord | network | 1.0.161 | — |
 | tcpdump | network | 4.99.7-1 | libpcap |
-| tree | tools | 2.3.2-1 | – |
-| firefox | tools | 157.0.1-1 | – |
-| mousepad | tools | 0.6.1-1build2 | – |
-| ristretto | tools | 0.13.1-1build2 | – |
-| xfce4-taskmanager | tools | 1.5.7-1build1 | – |
-| xarchiver | tools | 1:0.5.4.22-1build2 | – |
+| 7zip | tools | 23.01+dfsg-11 | — |
+| bat | tools | 0.24.0-1build1 | — |
+| btop | tools | 1.3.0-1 | — |
+| curl | tools | 8.5.0-2ubuntu10.15 | — |
+| duf | tools | 0.8.1-1ubuntu0.24.04.3 | — |
+| fd-find | tools | 9.0.0-1 | — |
+| file | tools | 1:5.45-3build1 | — |
+| firefox | tools | 157.0.1-1 | — |
+| fzf | tools | 0.44.1-1ubuntu0.3 | — |
+| git | tools | 1:2.43.0-1ubuntu7.3 | — |
+| htop | tools | 3.3.0-4build1 | — |
+| jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
+| less | tools | 590-2ubuntu2.1 | — |
+| lsof | tools | 4.95.0-1build3 | — |
+| mousepad | tools | 0.6.1-1build2 | — |
+| nano | tools | 7.2-2ubuntu0.2 | — |
+| ncdu | tools | 1.19-0.1 | — |
+| neofetch | tools | 7.1.0-4 | — |
+| ripgrep | tools | 14.1.0-1 | — |
+| ristretto | tools | 0.13.1-1build2 | — |
+| rsync | tools | 3.2.7-1ubuntu1.5 | — |
+| strace | tools | 6.8-0ubuntu2 | — |
+| tmux | tools | 3.4-1ubuntu0.1 | — |
+| tree | tools | 2.3.2-1 | — |
+| unzip | tools | 6.0-28ubuntu4.1 | — |
+| vim-tiny | tools | 2:9.1.0016-1ubuntu7.20 | — |
+| wget | tools | 1.21.4-1ubuntu4.5 | — |
+| xarchiver | tools | 1:0.5.4.22-1build2 | — |
+| xfce4-taskmanager | tools | 1.5.7-1build1 | — |
+| zip | tools | 3.0-13ubuntu0.2 | — |
+| zsh | tools | 5.9-6ubuntu2 | — |
 
-All payloads are x86_64 Linux (glibc), built from upstream sources
-(libpcap/tcpdump from tcpdump.org releases, nmap from nmap.org 7.95, tree from
-[Old-Man-Programmer/tree](https://github.com/Old-Man-Programmer/tree)), stripped,
-and staged with `tar -czf out.tar.gz -C <staging> usr`.
+All payloads are x86_64 Linux (glibc). They come from two build styles:
 
-`tcpdump` and `nmap` are real demonstrations of the dependency mechanism: both
-binaries have `libpcap.so.1` as a dynamic `NEEDED` entry, and their pages carry
-`"depends": ["libpcap"]`, so `ingot install tcpdump` (or `nmap`) installs
-`libpcap` first.
+- **Upstream source** (the original set): `libpcap`/`tcpdump` from tcpdump.org
+  releases, `nmap` from nmap.org 7.95, `tree` from
+  [Old-Man-Programmer/tree](https://github.com/Old-Man-Programmer/tree),
+  stripped, and staged with `tar -czf out.tar.gz -C <staging> usr`.
+- **Ubuntu 24.04 (noble) debs** (the larger set added later — `firefox`,
+  `discord`, the desktop apps, the CLI tools and the `libs/*` packages):
+  unpacked from noble `.deb`s and bundled with each package's **full dependency
+  closure**, so a single payload already carries everything it needs. `discord`
+  is packaged from the vendor `.deb`, since it is not in any apt repo.
+
+Because the deb-based payloads bundle their closure, `depends` is empty for
+them — the libraries are already inside the tarball. `tcpdump` and `nmap` keep
+the older split style: both binaries have `libpcap.so.1` as a dynamic `NEEDED`
+entry, and their pages carry `"depends": ["libpcap"]`, so
+`ingot install tcpdump` (or `nmap`) installs `libpcap` first.
+
+These payloads are verified locally (sha256 matches the page, tar has no
+absolute or `..` paths) but have **not** been boot-tested on a running Copper
+image.
 
 ## Adding a package
 

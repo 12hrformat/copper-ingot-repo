@@ -1,0 +1,8 @@
+{
+  "name": "tmux",
+  "version": "3.4-1ubuntu0.1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/tmux-3.4-1ubuntu0.1.tar.gz",
+  "sha256": "851e2afc930606337c62d9e40233c57bde9122b2167269a92626088d27e7f02b",
+  "depends": []
+}

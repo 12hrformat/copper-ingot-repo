@@ -1,0 +1,8 @@
+{
+  "name": "libssl3t64",
+  "version": "3.0.13-0ubuntu3.16",
+  "category": "libs",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libssl3t64-3.0.13-0ubuntu3.16.tar.gz",
+  "sha256": "e744b5039c8fee3a357cf69ec33db7d33998fe549590a1602a1fbbd19f68d675",
+  "depends": []
+}

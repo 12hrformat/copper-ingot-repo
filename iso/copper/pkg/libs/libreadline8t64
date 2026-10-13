@@ -1,0 +1,8 @@
+{
+  "name": "libreadline8t64",
+  "version": "8.2-4build1",
+  "category": "libs",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libreadline8t64-8.2-4build1.tar.gz",
+  "sha256": "106a0c08dfc9bc7d635de28cba3c7346213f4634e9d3eb203589bdc722963679",
+  "depends": []
+}
