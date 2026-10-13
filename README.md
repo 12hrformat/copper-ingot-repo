@@ -168,6 +168,14 @@ These payloads are verified locally (sha256 matches the page, tar has no
 absolute or `..` paths) but have **not** been boot-tested on a running Copper
 image.
 
+## Deliberately not packaged
+
+`hyprland` is a Wayland compositor, not an application: it needs a running
+Wayland session plus a seat manager (`seatd`/`logind`) to take the seat, while
+Copper boots X11/XFCE under busybox init. Nothing installable would make it
+start, so it is a v1.2 project, not a package. Shipping it would only add a
+payload that cannot run.
+
 ## Adding a package
 
 1. **Stage and build the tarball.** Contents extract relative to `/`; use
