@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libzstd1-1.5.5+dfsg2-2build1.1.tar.gz",
   "sha256": "2d2a433082543f3f9e2e47e8148d5403a39185f7b5facd14e806433ebdd811d9",
+  "size": 5861403,
   "depends": []
 }

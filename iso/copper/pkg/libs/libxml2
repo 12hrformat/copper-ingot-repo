@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libxml2-2.9.14+dfsg-1.3ubuntu3.10.tar.gz",
   "sha256": "b00756646103c2c0008948f39f7620110ca29c5c1d59e1df89cb1a6a166b2168",
+  "size": 22100293,
   "depends": []
 }

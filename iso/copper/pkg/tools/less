@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/less-590-2ubuntu2.1.tar.gz",
   "sha256": "f109d72482f1d846668a3ad35b7861d3c9d50faad6ff157e36c0d00f011fbc02",
+  "size": 5796148,
   "depends": []
 }

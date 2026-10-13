@@ -42,9 +42,10 @@ means the page is at `iso/copper/pkg/network/tcpdump`.
 
 ## Package page format
 
-One key per line, flat string values, double-quoted, on the same line as the
-key. `depends` is the ONLY array and must be on a single line. Pretty-print —
-a minified one-line file will break ingot, whose parser is a sed line-matcher,
+One key per line, values on the same line as the key. Strings are
+double-quoted; `size` is the one unquoted integer (`"size": 533377`).
+`depends` is the ONLY array and must be on a single line. Pretty-print — a
+minified one-line file will break ingot, whose parser is a sed line-matcher,
 not a JSON parser.
 
 ```json
@@ -53,6 +54,7 @@ not a JSON parser.
   "version": "4.99.7-1",
   "category": "network",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/tcpdump-4.99.7-1.tar.gz",
+  "size": 533377,
   "sha256": "6ae1d621c17e1931747ad6fdb31e67e8f7299437b589ed66ec580cc2d2b0e8a2",
   "depends": ["libpcap"]
 }
@@ -67,6 +69,7 @@ Field rules:
 | `category` | yes | string, must match `index.json` and the directory |
 | `url` | yes | string — the REAL payload tarball (a Release asset) |
 | `sha256` | yes | string — 64-char hex of that exact tarball |
+| `size` | no | unquoted integer, the payload's byte count — ingot draws a live download bar only when this is present |
 | `depends` | no | single-line array `["a","b"]`, empty `[]`, or omit the line |
 
 If `url` or `sha256` is missing, ingot refuses to install — by design. Key
@@ -119,6 +122,7 @@ order does not matter; field **names** must match exactly.
 | btop | tools | 1.3.0-1 | — |
 | curl | tools | 8.5.0-2ubuntu10.15 | — |
 | duf | tools | 0.8.1-1ubuntu0.24.04.3 | — |
+| fastfetch | tools | 2.69.0 | — |
 | fd-find | tools | 9.0.0-1 | — |
 | file | tools | 1:5.45-3build1 | — |
 | firefox | tools | 157.0.1-1 | — |
@@ -131,7 +135,6 @@ order does not matter; field **names** must match exactly.
 | mousepad | tools | 0.6.1-1build2 | — |
 | nano | tools | 7.2-2ubuntu0.2 | — |
 | ncdu | tools | 1.19-0.1 | — |
-| neofetch | tools | 7.1.0-4 | — |
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
 | rsync | tools | 3.2.7-1ubuntu1.5 | — |
@@ -156,13 +159,18 @@ All payloads are x86_64 Linux (glibc). They come from two build styles:
   `discord`, the desktop apps, the CLI tools and the `libs/*` packages):
   unpacked from noble `.deb`s and bundled with each package's **full dependency
   closure**, so a single payload already carries everything it needs. `discord`
-  is packaged from the vendor `.deb`, since it is not in any apt repo.
+  and `fastfetch` are packaged from the vendor `.deb`, since neither is in any
+  apt repo.
 
 Because the deb-based payloads bundle their closure, `depends` is empty for
 them — the libraries are already inside the tarball. `tcpdump` and `nmap` keep
 the older split style: both binaries have `libpcap.so.1` as a dynamic `NEEDED`
 entry, and their pages carry `"depends": ["libpcap"]`, so
 `ingot install tcpdump` (or `nmap`) installs `libpcap` first.
+
+`neofetch` was dropped in favour of `fastfetch`: it is a bash script and the
+image has no `bash`, so it installed but could not run at all. `fastfetch` is a
+compiled binary and runs as-is.
 
 These payloads are verified locally (sha256 matches the page, tar has no
 absolute or `..` paths) but have **not** been boot-tested on a running Copper
@@ -205,6 +213,7 @@ payload that cannot run.
          "version": "1.0-1",
          "category": "tools",
          "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/hello-1.0-1.tar.gz",
+         "size": <payload bytes>,
          "sha256": "<64-char hex of the payload tarball>",
          "depends": []
        }

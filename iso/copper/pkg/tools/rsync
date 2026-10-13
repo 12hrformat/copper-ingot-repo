@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/rsync-3.2.7-1ubuntu1.5.tar.gz",
   "sha256": "a6582dd667e4b8031280ba4efccd0c734c9b302092c2fb16c7b2843624710978",
+  "size": 8916053,
   "depends": []
 }

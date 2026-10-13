@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/strace-6.8-0ubuntu2.tar.gz",
   "sha256": "a8effb74a13684d5bb5d79a0876eb88f2132460ae0240a2ab474bd0ada939460",
+  "size": 6459736,
   "depends": []
 }

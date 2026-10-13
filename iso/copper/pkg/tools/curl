@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/curl-8.5.0-2ubuntu10.15.tar.gz",
   "sha256": "141eaa079352de190f87a6c5e2a816c2caf156fa37b680172032bbf984d0fd58",
+  "size": 14497122,
   "depends": []
 }

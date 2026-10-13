@@ -1,0 +1,9 @@
+{
+  "name": "fastfetch",
+  "version": "2.69.0",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/fastfetch-2.69.0.tar.gz",
+  "sha256": "b990cbdbaf3482a42dc32a1749a0617185fa15533b3c9d4654b85f44d92b04c5",
+  "size": 12724847,
+  "depends": []
+}

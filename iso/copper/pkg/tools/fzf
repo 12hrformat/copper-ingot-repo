@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/fzf-0.44.1-1ubuntu0.3.tar.gz",
   "sha256": "8b163a251871212c683301cbffcab6566cf4b5ffd99beb4e238636ec270f5d1d",
+  "size": 7079534,
   "depends": []
 }

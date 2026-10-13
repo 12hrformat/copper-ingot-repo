@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/zsh-5.9-6ubuntu2.tar.gz",
   "sha256": "7cada74e4871b011239ec2f21550e5fe627b8db3dd8d9332633bfe200a28ec72",
+  "size": 13015217,
   "depends": []
 }

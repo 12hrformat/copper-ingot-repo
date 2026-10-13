@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/git-1_2.43.0-1ubuntu7.3.tar.gz",
   "sha256": "d986ad31477cb304e54534d186a85699f52ec33979d56a304876d30fd0b61dc7",
+  "size": 41973563,
   "depends": []
 }

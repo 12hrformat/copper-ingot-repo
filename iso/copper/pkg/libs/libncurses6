@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libncurses6-6.4+20240113-1ubuntu2.2.tar.gz",
   "sha256": "0583ddaac6d37d0502129db3ce0e80ba216fcb2dd0d8363f4157bb891de1d1a6",
+  "size": 5769913,
   "depends": []
 }

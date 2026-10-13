@@ -4,5 +4,6 @@
   "category": "network",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/discord-1.0.161.tar.gz",
   "sha256": "c6ac34b9c59d3a3282f251556fd68480f8e2de851a2abed1a7740e9efd11a2cd",
+  "size": 128600911,
   "depends": []
 }

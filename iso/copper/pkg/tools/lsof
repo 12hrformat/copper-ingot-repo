@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/lsof-4.95.0-1build3.tar.gz",
   "sha256": "e8febfeed4dd7c627674ffa7637de0e381225c725d608948be182b277d3b2505",
+  "size": 9218432,
   "depends": []
 }

@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/liblzma5-5.6.1+really5.4.5-1ubuntu0.3.tar.gz",
   "sha256": "51258326537fa4eb451e12db8a8564c24d911b7876693d68884f5798c9469fc8",
+  "size": 5658580,
   "depends": []
 }

@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libsqlite3-0-3.45.1-1ubuntu2.8.tar.gz",
   "sha256": "5cffa0cf55058b381c524be5da34d094280eb87f972e2d6083baa2234a90fb04",
+  "size": 6291514,
   "depends": []
 }

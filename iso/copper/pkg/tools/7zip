@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/7zip-23.01+dfsg-11.tar.gz",
   "sha256": "87b8d7e5ec17087d1877922d130a7739d06a6af7212cf27462b6e1a1a13337c8",
+  "size": 9295264,
   "depends": []
 }

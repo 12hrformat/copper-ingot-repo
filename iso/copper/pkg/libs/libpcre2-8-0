@@ -4,5 +4,6 @@
   "category": "libs",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/libpcre2-8-0-10.42-4ubuntu2.1.tar.gz",
   "sha256": "2f993fbe318706a3e4cb71f9544ce8148145bebba5e5586fd673eeb9baf27f27",
+  "size": 5770830,
   "depends": []
 }

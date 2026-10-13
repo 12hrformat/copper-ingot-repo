@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/unzip-6.0-28ubuntu4.1.tar.gz",
   "sha256": "0cc9f34f4b95c28d21e43266ddd74065079b71b6227abc2b75b660b000c5236e",
+  "size": 5760223,
   "depends": []
 }

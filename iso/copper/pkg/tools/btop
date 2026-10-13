@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/btop-1.3.0-1.tar.gz",
   "sha256": "a8fc7cff8e25c31edce12c7e8bae5b1e78f1b735d7379d542b4ed698d0845647",
+  "size": 7110848,
   "depends": []
 }

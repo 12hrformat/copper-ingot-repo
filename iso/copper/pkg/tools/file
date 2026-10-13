@@ -4,5 +4,6 @@
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/file-1_5.45-3build1.tar.gz",
   "sha256": "e8242b5a4650cc4daf4ac94d07c3eada51d4fe9b612d2993885235e7a0845b96",
+  "size": 6316527,
   "depends": []
 }
