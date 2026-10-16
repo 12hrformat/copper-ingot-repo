@@ -44,5 +44,6 @@
   "xfce4-taskmanager": "tools",
   "zip": "tools",
   "zlib1g": "libs",
-  "zsh": "tools"
+  "zsh": "tools",
+  "hypr-configs": "desktop"
 }
