@@ -1,0 +1,9 @@
+{
+  "name": "pv",
+  "version": "1.8.5-2build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/pv-1.8.5-2build1.tar.gz",
+  "sha256": "28ba20c8c93d71ffecd2b7111fa0fcaf5e3831600ab5f420035bea97ab24ec27",
+  "size": 5601469,
+  "depends": []
+}

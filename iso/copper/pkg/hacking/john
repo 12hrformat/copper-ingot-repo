@@ -1,0 +1,9 @@
+{
+  "name": "john",
+  "version": "1.9.0-2build1",
+  "category": "hacking",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/john-1.9.0-2build1.tar.gz",
+  "sha256": "3cfbac5097c6a2affef03595f2738e273e0d21307c34f87a82a61e71bf58977b",
+  "size": 19597027,
+  "depends": []
+}

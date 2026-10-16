@@ -1,0 +1,9 @@
+{
+  "name": "figlet",
+  "version": "2.2.5-3",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/figlet-2.2.5-3.tar.gz",
+  "sha256": "605e33888c3c9210ff7722319af1cc3f5fb4e81cf8d8cc0b2cb7f5c105944542",
+  "size": 5711992,
+  "depends": []
+}

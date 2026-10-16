@@ -1,0 +1,9 @@
+{
+  "name": "sl",
+  "version": "5.02-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/sl-5.02-1.tar.gz",
+  "sha256": "f973d8de18982e312b8a74bbb8a9cd5d2446898b1e1619ba7e30dd6a3b35077a",
+  "size": 5783372,
+  "depends": []
+}

@@ -1,0 +1,9 @@
+{
+  "name": "shellcheck",
+  "version": "0.9.0-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/shellcheck-0.9.0-1.tar.gz",
+  "sha256": "d62ec2cda139a0b787fe341e4cca11d927502a324859061f7322ad5eb242118e",
+  "size": 9993799,
+  "depends": []
+}

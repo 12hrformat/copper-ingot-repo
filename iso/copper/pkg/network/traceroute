@@ -1,0 +1,9 @@
+{
+  "name": "traceroute",
+  "version": "1:2.1.5-1",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/traceroute-1_2.1.5-1.tar.gz",
+  "sha256": "09a256c0e1722f373200c4ca7d7a7442202c5ff02955933d38526a62100aeee4",
+  "size": 5584113,
+  "depends": []
+}

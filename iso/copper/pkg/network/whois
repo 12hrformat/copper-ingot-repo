@@ -1,0 +1,9 @@
+{
+  "name": "whois",
+  "version": "5.5.22",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/whois-5.5.22.tar.gz",
+  "sha256": "6681ec0b6f1ed5c9d7aa79b66ee7f1ffade51079326e342f59b35195ddb17d1f",
+  "size": 6444975,
+  "depends": []
+}

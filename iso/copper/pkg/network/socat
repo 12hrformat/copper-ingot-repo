@@ -1,0 +1,9 @@
+{
+  "name": "socat",
+  "version": "1.8.0.0-4ubuntu0.1",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/socat-1.8.0.0-4ubuntu0.1.tar.gz",
+  "sha256": "714693ac44bae313842df918b0361635ca01ed1b3f69850666eacab71702b70d",
+  "size": 8338150,
+  "depends": []
+}

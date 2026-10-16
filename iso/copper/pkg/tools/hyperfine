@@ -1,0 +1,9 @@
+{
+  "name": "hyperfine",
+  "version": "1.18.0-2build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/hyperfine-1.18.0-2build1.tar.gz",
+  "sha256": "259da7ed76dc671f4946fb4c407ca732b2bdc19dc780a92890646a489968b82e",
+  "size": 6140103,
+  "depends": []
+}

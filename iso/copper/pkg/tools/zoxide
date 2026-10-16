@@ -1,0 +1,9 @@
+{
+  "name": "zoxide",
+  "version": "0.9.3-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/zoxide-0.9.3-1.tar.gz",
+  "sha256": "5e88412cbd3e781cbb5e3c37e1a7196778158e3688c0a9188691c50d45a2c588",
+  "size": 6042310,
+  "depends": []
+}

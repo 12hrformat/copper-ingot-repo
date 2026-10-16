@@ -1,0 +1,9 @@
+{
+  "name": "netcat-openbsd",
+  "version": "1.226-1ubuntu2",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/netcat-openbsd-1.226-1ubuntu2.tar.gz",
+  "sha256": "a64b71f23008eeedc8a6b83031f3b8d654ebc7d216458e725bcff91659e4c7f7",
+  "size": 5637112,
+  "depends": []
+}

@@ -1,0 +1,9 @@
+{
+  "name": "bc",
+  "version": "1.07.1-3ubuntu4",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/bc-1.07.1-3ubuntu4.tar.gz",
+  "sha256": "294aad88ae764a616174243dccc49458a510d735184bf14a15f04172e8e364f9",
+  "size": 5966090,
+  "depends": []
+}

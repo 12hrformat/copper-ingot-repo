@@ -1,0 +1,9 @@
+{
+  "name": "dos2unix",
+  "version": "7.5.1-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/dos2unix-7.5.1-1.tar.gz",
+  "sha256": "77ad8e86c2846207e0698006dc2cd690d082187ee22540dfc93c6dcf6a3d2b6d",
+  "size": 6128695,
+  "depends": []
+}

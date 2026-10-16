@@ -104,6 +104,7 @@ order does not matter; field **names** must match exactly.
 | package | category | version | depends |
 | --- | --- | --- | --- |
 | hypr-configs | desktop | 9c2e40f | — |
+| john | hacking | 1.9.0-2build1 | — |
 | nmap | hacking | 7.95-1 | libpcap |
 | liblzma5 | libs | 5.6.1+really5.4.5-1ubuntu0.3 | — |
 | libncurses6 | libs | 6.4+20240113-1ubuntu2.2 | — |
@@ -118,28 +119,41 @@ order does not matter; field **names** must match exactly.
 | ncurses-base | libs | 6.4+20240113-1ubuntu2.2 | — |
 | zlib1g | libs | 1:1.3.dfsg-3.1ubuntu2.2 | — |
 | discord | network | 1.0.161 | — |
+| mtr-tiny | network | 0.95-1.1ubuntu0.1 | — |
+| netcat-openbsd | network | 1.226-1ubuntu2 | — |
+| socat | network | 1.8.0.0-4ubuntu0.1 | — |
 | tcpdump | network | 4.99.7-1 | libpcap |
+| traceroute | network | 1:2.1.5-1 | — |
+| whois | network | 5.5.22 | — |
 | 7zip | tools | 23.01+dfsg-11 | — |
 | bat | tools | 0.24.0-1build1 | — |
+| bc | tools | 1.07.1-3ubuntu4 | — |
 | btop | tools | 1.3.0-1 | — |
 | curl | tools | 8.5.0-2ubuntu10.15 | — |
+| dos2unix | tools | 7.5.1-1 | — |
 | duf | tools | 0.8.1-1ubuntu0.24.04.3 | — |
 | fastfetch | tools | 2.69.0 | — |
 | fd-find | tools | 9.0.0-1 | — |
+| figlet | tools | 2.2.5-3 | — |
 | file | tools | 1:5.45-3build1 | — |
 | firefox | tools | 157.0.1-1 | — |
 | fzf | tools | 0.44.1-1ubuntu0.3 | — |
 | git | tools | 1:2.43.0-1ubuntu7.3 | — |
 | htop | tools | 3.3.0-4build1 | ncurses-base |
+| hyperfine | tools | 1.18.0-2build1 | — |
 | jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
 | less | tools | 590-2ubuntu2.1 | ncurses-base |
 | lsof | tools | 4.95.0-1build3 | — |
+| mawk | tools | 1.3.4.20240123-1build1 | — |
 | mousepad | tools | 0.6.1-1build2 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
 | ncdu | tools | 1.19-0.1 | ncurses-base |
+| pv | tools | 1.8.5-2build1 | — |
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
 | rsync | tools | 3.2.7-1ubuntu1.5 | — |
+| shellcheck | tools | 0.9.0-1 | — |
+| sl | tools | 5.02-1 | — |
 | strace | tools | 6.8-0ubuntu2 | — |
 | tmux | tools | 3.4-1ubuntu0.1 | ncurses-base |
 | tree | tools | 2.3.2-1 | — |
@@ -149,6 +163,7 @@ order does not matter; field **names** must match exactly.
 | xarchiver | tools | 1:0.5.4.22-1build2 | — |
 | xfce4-taskmanager | tools | 1.5.7-1build1 | — |
 | zip | tools | 3.0-13ubuntu0.2 | — |
+| zoxide | tools | 0.9.3-1 | — |
 | zsh | tools | 5.9-6ubuntu2 | ncurses-base |
 
 All payloads are x86_64 Linux (glibc). They come from two build styles:
@@ -193,11 +208,40 @@ see "Deliberately not packaged" for why the compositor itself is not a package.
 image has no `bash`, so it installed but could not run at all. `fastfetch` is a
 compiled binary and runs as-is.
 
+The second deb batch adds fifteen more packages: `bc`, `dos2unix`, `figlet`,
+`hyperfine`, `mawk`, `pv`, `shellcheck`, `sl` and `zoxide` under `tools`;
+`mtr-tiny`, `netcat-openbsd`, `socat`, `traceroute` and `whois` under
+`network`; and `john` under `hacking`. Building them surfaced a defect that
+every deb-based payload can hit:
+
+**A payload must carry the command name, not just the binary.** `dpkg-deb -x`
+unpacks a `.deb` but never runs its `postinst`, and several packages create
+their command name in exactly that script with `update-alternatives`:
+
+| package | the deb ships | the user types | so the payload adds |
+| --- | --- | --- | --- |
+| netcat-openbsd | `bin/nc.openbsd` | `nc` | `bin/nc`, `bin/netcat` |
+| figlet | `usr/bin/figlet-figlet` | `figlet` | `usr/bin/figlet` |
+| traceroute | `usr/bin/traceroute.db` | `traceroute` | `usr/bin/traceroute`, `usr/bin/traceroute6` |
+| vim-tiny | `usr/bin/vim.tiny` | `vi`, `vim` | `usr/bin/vi`, `usr/bin/vim` |
+
+`sl` (`usr/games/sl`) and `john` (`usr/sbin/john`) also gain a `usr/bin`
+symlink so they land on the default `PATH`. Debian's deliberate renames get an
+alias too, because the package is named after the tool the user types:
+`usr/bin/bat` → `batcat` and `usr/bin/fd` → `fdfind`.
+
+That last defect had already shipped here: `bat`, `fd-find` and `vim-tiny`
+installed a binary that none of the names in the table above could invoke. All
+three were relinked and re-uploaded, so their `sha256` values changed —
+`ingot update` picks the new bytes up on its own, because `update` compares the
+page's `sha256` against the installed manifest.
+
 These payloads are verified locally (sha256 matches the page, tar has no
-absolute or `..` paths) but have **not** been boot-tested on a running Copper
-image. `hypr-configs` is verified the same way: the published `9c2e40f` asset
-hashes to the `sha256` in its page, the tar carries only `usr/...` paths, and
-its scripts keep their `+x` bit.
+absolute or `..` paths, and the command in the table starts from the extracted
+tree using the payload's own loader) but have **not** been boot-tested on a
+running Copper image. `hypr-configs` is verified the same way: the published
+`9c2e40f` asset hashes to the `sha256` in its page, the tar carries only
+`usr/...` paths, and its scripts keep their `+x` bit.
 
 ## Deliberately not packaged
 
@@ -219,6 +263,14 @@ is plain files with no runtime to satisfy.)
        cp hello staging/usr/bin/
        tar -czf hello-1.0-1.tar.gz -C staging usr
        tar -tzf hello-1.0-1.tar.gz     # inspect: usr/... only
+
+   If the command name comes from the deb's `postinst` — an
+   `update-alternatives` name, or a Debian rename — add it yourself as a
+   relative symlink in the staging tree. Nothing runs `postinst` here, so the
+   payload is the only thing that can create it:
+
+       tar -tzf hello-1.0-1.tar.gz | grep bin/   # is the name in there?
+       ln -s hello staging/usr/bin/hello         # only if it is missing
 
 2. **Upload it to a Release** (Pages is not for binaries):
 

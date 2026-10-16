@@ -3,7 +3,7 @@
   "version": "9.0.0-1",
   "category": "tools",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/fd-find-9.0.0-1.tar.gz",
-  "sha256": "40da96ffca06b5607a1b197cc558559cf6a6eddc3910fe8b23c538a45bee510f",
-  "size": 6917874,
+  "sha256": "7462b8e3c426864baf8046c7e5f412c95e1ecb65d0ae811f23df0669b441fefb",
+  "size": 6917850,
   "depends": []
 }

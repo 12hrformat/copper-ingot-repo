@@ -1,0 +1,9 @@
+{
+  "name": "mtr-tiny",
+  "version": "0.95-1.1ubuntu0.1",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/mtr-tiny-0.95-1.1ubuntu0.1.tar.gz",
+  "sha256": "875bdd1ae5705a486cf28e50fa0e4c71c0356bee14a5a1683b9de160aa6a9f2d",
+  "size": 5861095,
+  "depends": []
+}
