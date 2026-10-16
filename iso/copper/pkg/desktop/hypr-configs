@@ -1,1 +1,9 @@
-﻿{"name":"hypr-configs","version":"bb37aeb","category":"desktop","url":"https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/hypr-configs-bb37aeb.tar.gz","sha256":"PLACEHOLDER_SHA256","depends":[]}
+{
+  "name": "hypr-configs",
+  "version": "9c2e40f",
+  "category": "desktop",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/hypr-configs-9c2e40f.tar.gz",
+  "size": 335148,
+  "sha256": "ba7739c167dffc5e545638162e935042599252eb165f617a7b3b529c82fb2f68",
+  "depends": []
+}

@@ -103,6 +103,7 @@ order does not matter; field **names** must match exactly.
 
 | package | category | version | depends |
 | --- | --- | --- | --- |
+| hypr-configs | desktop | 9c2e40f | — |
 | nmap | hacking | 7.95-1 | libpcap |
 | liblzma5 | libs | 5.6.1+really5.4.5-1ubuntu0.3 | — |
 | libncurses6 | libs | 6.4+20240113-1ubuntu2.2 | — |
@@ -178,21 +179,36 @@ exceptions:
   never pulls in. Without it any full-screen program dies with
   `Error opening terminal: linux.` on the VGA console.
 
+`hypr-configs` is the one **non-deb, non-binary** payload: it is Copper's own
+Hyprland configuration tree (the ML4W-derived dotfiles from
+`12hrformat/copper-hyprland-configs`), staged at
+`usr/share/copper/hyprland-skel/`. It ships no ELF, so it has no dependency
+closure and declares none. It exists so the first Hyprland login can refresh
+the config the ISO baked in: `starthyprland` offers it
+(`would you like your hyprland config files?`) and installs it with
+`ingot install hypr-configs`. It is data for the session, not the compositor —
+see "Deliberately not packaged" for why the compositor itself is not a package.
+
 `neofetch` was dropped in favour of `fastfetch`: it is a bash script and the
 image has no `bash`, so it installed but could not run at all. `fastfetch` is a
 compiled binary and runs as-is.
 
 These payloads are verified locally (sha256 matches the page, tar has no
 absolute or `..` paths) but have **not** been boot-tested on a running Copper
-image.
+image. `hypr-configs` is verified the same way: the published `9c2e40f` asset
+hashes to the `sha256` in its page, the tar carries only `usr/...` paths, and
+its scripts keep their `+x` bit.
 
 ## Deliberately not packaged
 
 `hyprland` is a Wayland compositor, not an application: it needs a running
 Wayland session plus a seat manager (`seatd`/`logind`) to take the seat, while
-Copper boots X11/XFCE under busybox init. Nothing installable would make it
+Copper's live image boots under busybox init. Nothing installable would make it
 start, so it is a v1.2 project, not a package. Shipping it would only add a
-payload that cannot run.
+payload that cannot run. (The compositor is instead baked into the ISO by the
+`hypr` build stage, behind the first-boot wizard's Desktop question. The
+*config* for that session **is** packaged — `hypr-configs` above — because it
+is plain files with no runtime to satisfy.)
 
 ## Adding a package
 
