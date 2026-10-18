@@ -1,0 +1,9 @@
+{
+  "name": "pciutils",
+  "version": "1:3.10.0-2build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/pciutils-1_3.10.0-2build1.tar.gz",
+  "sha256": "a1b60439227a724faaff3ed4f13be3bfe3fad90659153baed69532410da91aa2",
+  "size": 9089845,
+  "depends": []
+}

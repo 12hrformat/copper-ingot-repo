@@ -1,0 +1,9 @@
+{
+  "name": "pkg-config",
+  "version": "1.8.1-2build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/pkg-config-1.8.1-2build1.tar.gz",
+  "sha256": "24ed3650998ebf1f2096ba2c9745c2f1ecc5da9b890b871cae79f2c39d6c1493",
+  "size": 5592344,
+  "depends": []
+}
