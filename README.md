@@ -144,6 +144,7 @@ order does not matter; field **names** must match exactly.
 | jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
 | less | tools | 590-2ubuntu2.1 | ncurses-base |
 | lsof | tools | 4.95.0-1build3 | — |
+| make | tools | 4.3-4.1build2 | — |
 | mawk | tools | 1.3.4.20240123-1build1 | — |
 | mousepad | tools | 0.6.1-1build2 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
@@ -157,10 +158,13 @@ order does not matter; field **names** must match exactly.
 | strace | tools | 6.8-0ubuntu2 | — |
 | tmux | tools | 3.4-1ubuntu0.1 | ncurses-base |
 | tree | tools | 2.3.2-1 | — |
+| tumbler | tools | 4.18.1-1.1build4 | — |
 | unzip | tools | 6.0-28ubuntu4.1 | — |
 | vim-tiny | tools | 2:9.1.0016-1ubuntu7.20 | ncurses-base |
 | wget | tools | 1.21.4-1ubuntu4.5 | — |
 | xarchiver | tools | 1:0.5.4.22-1build2 | — |
+| xfce4-notifyd | tools | 0.9.4-1 | — |
+| xfce4-screenshooter | tools | 1.10.5-1build1 | — |
 | xfce4-taskmanager | tools | 1.5.7-1build1 | — |
 | zip | tools | 3.0-13ubuntu0.2 | — |
 | zoxide | tools | 0.9.3-1 | — |
@@ -242,6 +246,33 @@ tree using the payload's own loader) but have **not** been boot-tested on a
 running Copper image. `hypr-configs` is verified the same way: the published
 `9c2e40f` asset hashes to the `sha256` in its page, the tar carries only
 `usr/...` paths, and its scripts keep their `+x` bit.
+
+### The third batch: the tools a desktop is expected to have
+
+Four packages, `make`, `xfce4-screenshooter`, `xfce4-notifyd` and `tumbler`,
+all under `tools`. Three of them exist because of one decision in the `gui`
+stage: it installs the bare `xfce4` metapackage with `--no-install-recommends`,
+and on noble that meta has no `Recommends` at all — the goodies the Xubuntu
+desktop pulls in live in `xubuntu-desktop`, which this image deliberately does
+not install. So `xfce4-notifyd` (notifications), `tumbler` (Thunar's thumbnails)
+and `xfce4-screenshooter` are absent from a Copper desktop by construction, not
+by accident. Each is a normal deb payload with its full closure; `tumbler` has
+no `Depends` on anything outside its own closure and talks to D-Bus, which
+`startxfce` already starts, so it needs nothing else to activate.
+
+`make` is the odd one out and is not about XFCE: it is the build tool the
+`installing apps` path keeps hitting. `curl` and `git` were already packaged
+here, so the three together are `ingot install curl make git`.
+
+What this batch is **not**: the Hyprland session needs no packages for its
+ecosystem. `hyprland`, `hypridle`, `hyprlock`, `hyprpaper`, `hyprpicker`,
+`hyprsunset`, `hyprpolkitagent`, `waybar`, `fuzzel`, `grim`, `slurp`,
+`wl-clipboard`, `cliphist`, `kitty` and `imagemagick` are all **baked into the
+ISO** by the `hypr` build stage (`12hrformat/copper`, `iso/build.sh`,
+`build_hypr`), because a live image with no network has to come up complete.
+There is nothing to add there, and packaging the compositor's own libraries
+would only duplicate — at a possibly different soname — what the image already
+ships.
 
 ## Deliberately not packaged
 

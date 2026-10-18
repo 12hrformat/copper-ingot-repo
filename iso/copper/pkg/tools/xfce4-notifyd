@@ -1,0 +1,9 @@
+{
+  "name": "xfce4-notifyd",
+  "version": "0.9.4-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/xfce4-notifyd-0.9.4-1.tar.gz",
+  "sha256": "d4e1cb7369cb57e30adfb4c621caeff21a40c9eaa6a9c915e82f9271e5163ff3",
+  "size": 68530283,
+  "depends": []
+}

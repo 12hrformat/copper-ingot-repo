@@ -1,0 +1,9 @@
+{
+  "name": "make",
+  "version": "4.3-4.1build2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/make-4.3-4.1build2.tar.gz",
+  "sha256": "fa54d7480063e38b7fd68b6e3623b9b8d462283a6d0d51bdadf27b85f89a6e19",
+  "size": 5715251,
+  "depends": []
+}

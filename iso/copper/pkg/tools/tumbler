@@ -1,0 +1,9 @@
+{
+  "name": "tumbler",
+  "version": "4.18.1-1.1build4",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/tumbler-4.18.1-1.1build4.tar.gz",
+  "sha256": "21124d94d45dd47efdb3c01dee31b776c711644d9b77436d0a115bd1205e54cb",
+  "size": 54885171,
+  "depends": []
+}

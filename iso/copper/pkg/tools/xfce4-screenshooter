@@ -1,0 +1,9 @@
+{
+  "name": "xfce4-screenshooter",
+  "version": "1.10.5-1build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/xfce4-screenshooter-1.10.5-1build1.tar.gz",
+  "sha256": "a2726f1ff4658034d023f7c825dd361c01404ede38fbc672131f5aae55cce54c",
+  "size": 70649002,
+  "depends": []
+}
