@@ -1,0 +1,9 @@
+{
+  "name": "fortune-mod",
+  "version": "1:1.99.1-7.3build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/fortune-mod-1_1.99.1-7.3build1.tar.gz",
+  "sha256": "c5d8a45347cae65d57f94d08f6d958b4862387e1966165f46c1568f7080a438e",
+  "size": 6329626,
+  "depends": []
+}

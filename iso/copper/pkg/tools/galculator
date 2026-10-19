@@ -1,0 +1,9 @@
+{
+  "name": "galculator",
+  "version": "2.1.4-1.2build2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/galculator-2.1.4-1.2build2.tar.gz",
+  "sha256": "a14510977ef7ffee1704ea621d3470a0b8372da3aece568b9da2b95ed860ec84",
+  "size": 66731048,
+  "depends": []
+}

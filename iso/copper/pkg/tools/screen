@@ -1,0 +1,9 @@
+{
+  "name": "screen",
+  "version": "4.9.1-1ubuntu1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/screen-4.9.1-1ubuntu1.tar.gz",
+  "sha256": "253aa01f1ac73c57e1d9f0e5a6bf64bbb682e2c7c706895fc399d41043ed71a0",
+  "size": 6730489,
+  "depends": []
+}

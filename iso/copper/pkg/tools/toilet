@@ -1,0 +1,9 @@
+{
+  "name": "toilet",
+  "version": "0.3-1.4build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/toilet-0.3-1.4build1.tar.gz",
+  "sha256": "ee763e9dfa7fae746d0333ac6d1d725a8b7a70085c19b918d19574ee50eab52f",
+  "size": 8367165,
+  "depends": []
+}

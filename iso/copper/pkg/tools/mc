@@ -1,0 +1,9 @@
+{
+  "name": "mc",
+  "version": "3:4.8.30-1ubuntu0.1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/mc-3_4.8.30-1ubuntu0.1.tar.gz",
+  "sha256": "c0fa57d8203e37731cf5bbe425aa9680955348a529889a5242a79926123a3475",
+  "size": 14139692,
+  "depends": []
+}

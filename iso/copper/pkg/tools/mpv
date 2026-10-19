@@ -1,0 +1,9 @@
+{
+  "name": "mpv",
+  "version": "0.37.0-1ubuntu4",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/mpv-0.37.0-1ubuntu4.tar.gz",
+  "sha256": "59732178237c7d7bba27ad507f297a3173a0658c4ebeb86f7a6b8608c08451ea",
+  "size": 183359882,
+  "depends": []
+}

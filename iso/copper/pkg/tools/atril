@@ -1,0 +1,9 @@
+{
+  "name": "atril",
+  "version": "1.26.2-3build2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/atril-1.26.2-3build2.tar.gz",
+  "sha256": "658c922817f23421d7e812be21f95d96d5bd031c279d7f7fcbc7d5f266257f68",
+  "size": 243449864,
+  "depends": []
+}

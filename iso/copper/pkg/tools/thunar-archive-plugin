@@ -1,0 +1,9 @@
+{
+  "name": "thunar-archive-plugin",
+  "version": "0.5.2-1build2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/thunar-archive-plugin-0.5.2-1build2.tar.gz",
+  "sha256": "28de65bd29ab6a579b75b7ce4578549c4d4b8956cdba009824728897b7922639",
+  "size": 70477882,
+  "depends": ["xarchiver"]
+}

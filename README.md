@@ -124,35 +124,47 @@ order does not matter; field **names** must match exactly.
 | zlib1g | libs | 1:1.3.dfsg-3.1ubuntu2.2 | — |
 | bind9-dnsutils | network | 1:9.18.39-0ubuntu0.24.04.8 | — |
 | discord | network | 1.0.161 | — |
+| iperf3 | network | 3.16-1build2 | — |
 | iproute2 | network | 6.1.0-1ubuntu6.4 | — |
 | mtr-tiny | network | 0.95-1.1ubuntu0.1 | — |
 | netcat-openbsd | network | 1.226-1ubuntu2 | — |
+| openssh-client | network | 1:9.6p1-3ubuntu13.20 | — |
 | socat | network | 1.8.0.0-4ubuntu0.1 | — |
+| sshpass | network | 1.09-1 | — |
 | tcpdump | network | 4.99.7-1 | libpcap |
 | traceroute | network | 1:2.1.5-1 | — |
 | whois | network | 5.5.22 | — |
 | 7zip | tools | 23.01+dfsg-11 | — |
+| atril | tools | 1.26.2-3build2 | — |
 | bat | tools | 0.24.0-1build1 | — |
 | bc | tools | 1.07.1-3ubuntu4 | — |
 | btop | tools | 1.3.0-1 | — |
+| cmatrix | tools | 2.0-6 | — |
+| cowsay | tools | 3.03+dfsg2-8 | — |
 | curl | tools | 8.5.0-2ubuntu10.15 | — |
 | dos2unix | tools | 7.5.1-1 | — |
 | duf | tools | 0.8.1-1ubuntu0.24.04.3 | — |
 | fastfetch | tools | 2.69.0 | — |
 | fd-find | tools | 9.0.0-1 | — |
+| feh | tools | 3.10.1-1ubuntu0.1 | — |
 | figlet | tools | 2.2.5-3 | — |
 | file | tools | 1:5.45-3build1 | — |
 | firefox | tools | 157.0.1-1 | — |
+| fortune-mod | tools | 1:1.99.1-7.3build1 | — |
 | fzf | tools | 0.44.1-1ubuntu0.3 | — |
+| galculator | tools | 2.1.4-1.2build2 | — |
 | git | tools | 1:2.43.0-1ubuntu7.3 | — |
 | htop | tools | 3.3.0-4build1 | ncurses-base |
 | hyperfine | tools | 1.18.0-2build1 | — |
 | jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
 | less | tools | 590-2ubuntu2.1 | ncurses-base |
+| lolcat | tools | 100.0.1-3 | — |
 | lsof | tools | 4.95.0-1build3 | — |
 | make | tools | 4.3-4.1build2 | — |
 | mawk | tools | 1.3.4.20240123-1build1 | — |
+| mc | tools | 3:4.8.30-1ubuntu0.1 | — |
 | mousepad | tools | 0.6.1-1build2 | — |
+| mpv | tools | 0.37.0-1ubuntu4 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
 | ncdu | tools | 1.19-0.1 | ncurses-base |
 | pciutils | tools | 1:3.10.0-2build1 | — |
@@ -161,10 +173,14 @@ order does not matter; field **names** must match exactly.
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
 | rsync | tools | 3.2.7-1ubuntu1.5 | — |
+| screen | tools | 4.9.1-1ubuntu1 | — |
 | shellcheck | tools | 0.9.0-1 | — |
 | sl | tools | 5.02-1 | — |
+| sqlite3 | tools | 3.45.1-1ubuntu2.8 | — |
 | strace | tools | 6.8-0ubuntu2 | — |
+| thunar-archive-plugin | tools | 0.5.2-1build2 | xarchiver |
 | tmux | tools | 3.4-1ubuntu0.1 | ncurses-base |
+| toilet | tools | 0.3-1.4build1 | — |
 | tree | tools | 2.3.2-1 | — |
 | tumbler | tools | 4.18.1-1.1build4 | — |
 | unzip | tools | 6.0-28ubuntu4.1 | — |
@@ -190,10 +206,15 @@ All payloads are x86_64 Linux (glibc). They come from two build styles:
   unpacked from noble `.deb`s and bundled with each package's **full dependency
   closure**, so a single payload already carries everything it needs. `discord`
   and `fastfetch` are packaged from the vendor `.deb`, since neither is in any
-  apt repo.
+  apt repo. `discord` is also the one hand-patched payload: its vendor launcher
+  gets `--no-sandbox` on its two `exec` lines, because the Chromium sandbox
+  helper it insists on is unpacked into the user's own `$XDG_CONFIG_HOME` and
+  can never be root-owned and setuid. The asset is
+  `discord-1.0.161-copper1.tar.gz`; the reasoning is bug 43 in the copperlinux
+  repository's `BUGS.md`.
 
 Because the deb-based payloads bundle their closure, `depends` is mostly empty
-for them — the libraries are already inside the tarball. There are two
+for them — the libraries are already inside the tarball. There are three
 exceptions:
 
 - `tcpdump` and `nmap` keep the older split style: both binaries have
@@ -206,6 +227,11 @@ exceptions:
   an `Essential: yes` package that a closure walk against an empty dpkg status
   never pulls in. Without it any full-screen program dies with
   `Error opening terminal: linux.` on the VGA console.
+- `thunar-archive-plugin` keeps the split on purpose even though its payload has
+  the closure: the plugin is only the menu entries. It runs whatever archive
+  manager it finds, and `xarchiver` was already packaged here, so its page
+  carries `"depends": ["xarchiver"]` and `ingot install thunar-archive-plugin`
+  brings the manager that does the work.
 
 `hypr-configs` is the one **non-deb, non-binary** payload: it is Copper's own
 Hyprland configuration tree (the ML4W-derived dotfiles from
@@ -311,6 +337,56 @@ ELF's `DT_NEEDED` closure is satisfied from inside the payload.
 `7zip` and `btop` were also rebuilt in this pass. Their pages carry a new
 `sha256` and `size` because the payload bytes changed with it; the versions are
 identical. (`curl`, `make` and `git` complete the trio the third batch started.)
+
+### The fifth batch: the desktop apps, a terminal stack, and the toys
+
+Sixteen packages, from two directions. The first is the gap between "the desktop
+starts" and "the desktop is finished": it had a file manager but no archive
+manager, no calculator, no PDF viewer and no video player, and a person who
+types `ssh` is not doing anything exotic.
+
+| package | category | what you type |
+| --- | --- | --- |
+| thunar-archive-plugin | tools | — (Thunar's *Extract here* / *Create archive*) |
+| galculator | tools | `galculator` |
+| atril | tools | `atril` — PDF and PostScript |
+| mpv | tools | `mpv` |
+| feh | tools | `feh` — images, and `feh --bg-scale` for a wallpaper |
+| mc | tools | `mc`, `mcedit` |
+| screen | tools | `screen` |
+| sqlite3 | tools | `sqlite3` |
+| openssh-client | network | `ssh`, `scp`, `sftp`, `ssh-keygen`, `ssh-agent` |
+| sshpass | network | `sshpass` |
+| iperf3 | network | `iperf3` |
+
+The other five are toys, and they are here because they are the packages people
+install *on purpose* — a machine that cannot answer `fortune | cowsay | lolcat`
+is complete and also less fun:
+
+| package | category | what you type |
+| --- | --- | --- |
+| cowsay | tools | `cowsay`, `cowthink` |
+| lolcat | tools | `lolcat` |
+| fortune-mod | tools | `fortune` |
+| cmatrix | tools | `cmatrix` |
+| toilet | tools | `toilet` |
+
+`atril` (243 MB) and `mpv` (183 MB) are by far the largest payloads in the repo,
+and that is the closure rule working rather than a mistake: atril drags in the
+GTK document and printing stack, mpv its codecs and fontconfig, and both arrive
+able to run with nothing else installed. `feh` is the same story at 79 MB, and
+is the reason a bare image can set a wallpaper.
+
+Two of these have a history here rather than a wish list behind them:
+
+- `openssh-client` closes a hole that mattered: a Copper machine had no `ssh` at
+  all, so the one machine whose job is to be reached over a network could not be
+  reached with it, and neither could a file be `scp`-ed off it. `sshpass` and
+  `iperf3` come with it as the two things that turn a network problem from an
+  argument into a measurement.
+- `screen` was already on the machine as a *dependency* — `tumbler`'s and
+  `xfce4-notifyd`'s closures pull it in, which is how it was noticed — but
+  `ingot install screen` had nothing to install. It does now.
 
 ## Deliberately not packaged
 

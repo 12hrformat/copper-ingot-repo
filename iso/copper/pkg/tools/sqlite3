@@ -1,0 +1,9 @@
+{
+  "name": "sqlite3",
+  "version": "3.45.1-1ubuntu2.8",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/sqlite3-3.45.1-1ubuntu2.8.tar.gz",
+  "sha256": "7885c64abebb9e73b606f4730a17e9d60b38bace1506b173c7ca0d0a118035e4",
+  "size": 6860627,
+  "depends": []
+}

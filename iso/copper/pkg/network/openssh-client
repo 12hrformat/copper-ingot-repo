@@ -1,0 +1,9 @@
+{
+  "name": "openssh-client",
+  "version": "1:9.6p1-3ubuntu13.20",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/openssh-client-1_9.6p1-3ubuntu13.20.tar.gz",
+  "sha256": "99448bca017047db91edbaff2d3281ab973263cdfafc15fe2560c81ce023325b",
+  "size": 16131416,
+  "depends": []
+}

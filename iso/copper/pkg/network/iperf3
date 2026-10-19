@@ -1,0 +1,9 @@
+{
+  "name": "iperf3",
+  "version": "3.16-1build2",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/iperf3-3.16-1build2.tar.gz",
+  "sha256": "e50642f45d773428a518a91187b7260d4f8bd98778a8dd4f972c66b3fd63b4bf",
+  "size": 13316505,
+  "depends": []
+}

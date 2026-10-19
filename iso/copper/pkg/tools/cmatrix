@@ -1,0 +1,9 @@
+{
+  "name": "cmatrix",
+  "version": "2.0-6",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/cmatrix-2.0-6.tar.gz",
+  "sha256": "6c830c40a3ccf258e9c36caed99b74c6a7a19ba6ad8c57970db2928cd2a47d26",
+  "size": 5804244,
+  "depends": []
+}

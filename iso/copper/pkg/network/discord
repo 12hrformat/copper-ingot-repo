@@ -2,8 +2,8 @@
   "name": "discord",
   "version": "1.0.161",
   "category": "network",
-  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/discord-1.0.161.tar.gz",
-  "sha256": "c6ac34b9c59d3a3282f251556fd68480f8e2de851a2abed1a7740e9efd11a2cd",
-  "size": 128600911,
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/discord-1.0.161-copper1.tar.gz",
+  "sha256": "3491741196418bcc9efb73b9a9daa1edebec14deaf406fd618fca9aa806f6b0b",
+  "size": 128599953,
   "depends": []
 }

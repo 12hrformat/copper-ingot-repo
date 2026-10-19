@@ -1,0 +1,9 @@
+{
+  "name": "sshpass",
+  "version": "1.09-1",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/sshpass-1.09-1.tar.gz",
+  "sha256": "c7b92bda2e0fe41018f808617cdfbdf154f89d790c3be9552594cadd4136166b",
+  "size": 5535736,
+  "depends": []
+}

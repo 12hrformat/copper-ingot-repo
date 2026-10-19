@@ -1,0 +1,9 @@
+{
+  "name": "cowsay",
+  "version": "3.03+dfsg2-8",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/cowsay-3.03+dfsg2-8.tar.gz",
+  "sha256": "5d341d80ffd7f4e85ac07d7b0bda53401da7095a16d48d35e846a28a815f8887",
+  "size": 24278282,
+  "depends": []
+}

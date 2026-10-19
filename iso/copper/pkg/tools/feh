@@ -1,0 +1,9 @@
+{
+  "name": "feh",
+  "version": "3.10.1-1ubuntu0.1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/feh-3.10.1-1ubuntu0.1.tar.gz",
+  "sha256": "903f89cc35d0c1060282235e8830bd5004ad45bc6c2df31fd1c759f17d9c723a",
+  "size": 79504811,
+  "depends": []
+}
