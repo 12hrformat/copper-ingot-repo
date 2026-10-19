@@ -106,6 +106,7 @@ order does not matter; field **names** must match exactly.
 | hypr-configs | desktop | 9c2e40f | — |
 | john | hacking | 1.9.0-2build1 | — |
 | nmap | hacking | 7.95-1 | libpcap |
+| libfuse2t64 | libs | 2.9.9-8.1build1 | — |
 | liblzma5 | libs | 5.6.1+really5.4.5-1ubuntu0.3 | — |
 | libncurses6 | libs | 6.4+20240113-1ubuntu2.2 | — |
 | libpcap | libs | 1.11.0-1 | — |
@@ -118,7 +119,9 @@ order does not matter; field **names** must match exactly.
 | libzstd1 | libs | 1.5.5+dfsg2-2build1.1 | — |
 | ncurses-base | libs | 6.4+20240113-1ubuntu2.2 | — |
 | zlib1g | libs | 1:1.3.dfsg-3.1ubuntu2.2 | — |
+| bind9-dnsutils | network | 1:9.18.39-0ubuntu0.24.04.8 | — |
 | discord | network | 1.0.161 | — |
+| iproute2 | network | 6.1.0-1ubuntu6.4 | — |
 | mtr-tiny | network | 0.95-1.1ubuntu0.1 | — |
 | netcat-openbsd | network | 1.226-1ubuntu2 | — |
 | socat | network | 1.8.0.0-4ubuntu0.1 | — |
@@ -149,6 +152,8 @@ order does not matter; field **names** must match exactly.
 | mousepad | tools | 0.6.1-1build2 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
 | ncdu | tools | 1.19-0.1 | ncurses-base |
+| pciutils | tools | 1:3.10.0-2build1 | — |
+| pkg-config | tools | 1.8.1-2build1 | — |
 | pv | tools | 1.8.5-2build1 | — |
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
@@ -160,6 +165,7 @@ order does not matter; field **names** must match exactly.
 | tree | tools | 2.3.2-1 | — |
 | tumbler | tools | 4.18.1-1.1build4 | — |
 | unzip | tools | 6.0-28ubuntu4.1 | — |
+| usbutils | tools | 1:017-3build1 | — |
 | vim-tiny | tools | 2:9.1.0016-1ubuntu7.20 | ncurses-base |
 | wget | tools | 1.21.4-1ubuntu4.5 | — |
 | xarchiver | tools | 1:0.5.4.22-1build2 | — |
@@ -274,6 +280,35 @@ There is nothing to add there, and packaging the compositor's own libraries
 would only duplicate — at a possibly different soname — what the image already
 ships.
 
+### The fourth batch: lspci, lsusb, ip, dig and the two libraries that unblock apps
+
+Six packages, chosen from what a person actually types when they sit down at a
+Linux machine that is not theirs yet:
+
+| package | category | what you type |
+| --- | --- | --- |
+| pciutils | tools | `lspci`, `setpci` |
+| usbutils | tools | `lsusb`, `usb-devices`, `usbreset` |
+| pkg-config | tools | `pkg-config` |
+| iproute2 | network | `ip`, `ss`, `tc`, `bridge`, `devlink` |
+| bind9-dnsutils | network | `dig`, `host`, `nslookup`, `nsupdate`, `delv` |
+| libfuse2t64 | libs | — (no command; it is what AppImages need) |
+
+The image's base is busybox, so `ip` and `dig` did not exist at all, and there
+was no way to look at the PCI or USB bus. `pkg-config` joins `make` on the
+"installing apps from source" path.
+
+`libfuse2t64` is the quiet one and the most useful: an AppImage looks for
+`libfuse.so.2` at runtime, noble shipped FUSE 3 as `libfuse3-3`, and the FUSE 2
+runtime only exists under the `t64` time_t-transition name. Without it every
+AppImage refuses to start with `fuse: failed to open /dev/fuse`. There is no
+command to test, so its page is verified by unpacking and checking that the
+ELF's `DT_NEEDED` closure is satisfied from inside the payload.
+
+`7zip` and `btop` were also rebuilt in this pass. Their pages carry a new
+`sha256` and `size` because the payload bytes changed with it; the versions are
+identical. (`curl`, `make` and `git` complete the trio the third batch started.)
+
 ## Deliberately not packaged
 
 `hyprland` is a Wayland compositor, not an application: it needs a running
@@ -308,6 +343,14 @@ is plain files with no runtime to satisfy.)
        gh release create payloads-v1 hello-1.0-1.tar.gz
        # or, if the release already exists:
        gh release upload payloads-v1 hello-1.0-1.tar.gz
+
+   Two things bite here. A `+` in the asset name **must** be sent as `%2B`
+   (GitHub turns a literal `+` into `.`, so `7zip-23.01+dfsg-11.tar.gz`
+   becomes `7zip-23.01.dfsg-11.tar.gz` and the page's URL 404s), and `gh`
+   eventually times out with `HTTP 408: Upload body timed out due to
+   inactivity` on the ~70 MB payloads, where `curl --retry 10
+   --retry-all-errors --data-binary @file` succeeds. Delete any same-named
+   asset first; `curl` has no `--clobber`.
 
 3. **Compute the sha256 of the exact asset bytes** (the file you just
    uploaded — hash it locally, don't rebuild after hashing):

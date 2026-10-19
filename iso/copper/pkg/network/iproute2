@@ -1,7 +1,7 @@
 {
   "name": "iproute2",
   "version": "6.1.0-1ubuntu6.4",
-  "category": "tools",
+  "category": "network",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/iproute2-6.1.0-1ubuntu6.4.tar.gz",
   "sha256": "6a76ce131e440759ae6ccf1c54504b6629c0b2188ba7d71d9ceb6814922ad429",
   "size": 8917244,

@@ -1,7 +1,7 @@
 {
   "name": "bind9-dnsutils",
   "version": "1:9.18.39-0ubuntu0.24.04.8",
-  "category": "tools",
+  "category": "network",
   "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/bind9-dnsutils-1_9.18.39-0ubuntu0.24.04.8.tar.gz",
   "sha256": "d138db51d0d1848b7a21df772f735b4459ac3127da7d03969f888735e53441f8",
   "size": 28229766,
