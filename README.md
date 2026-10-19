@@ -12,6 +12,9 @@ overrides it):
     iso/copper/pkg/index.json              name -> category, one entry per line
     iso/copper/pkg/<category>/<name>       one JSON page per package (no extension)
 
+`index.json` is **generated from the pages**, never hand-edited — see
+"Regenerating and checking the index" below.
+
 What ingot fetches, exactly:
 
 1. `<repo-url>/iso/copper/pkg/index.json`
@@ -320,6 +323,35 @@ payload that cannot run. (The compositor is instead baked into the ISO by the
 *config* for that session **is** packaged — `hypr-configs` above — because it
 is plain files with no runtime to satisfy.)
 
+## Regenerating and checking the index
+
+`index.json` is derived data. The **page files are the source of truth**, and
+the index is rebuilt from them so it cannot name a package that does not exist:
+
+    python3 tools/index.py           # validate the pages, then write index.json
+    python3 tools/index.py --check   # validate, and fail if index.json is stale
+
+It refuses to write a page that is not JSON, whose `name`/`category` disagree
+with the file and directory it lives in, that is missing `version`, `url`,
+`size`, `sha256` or `depends`, or whose `depends` names something with no page.
+The output is strict JSON *and* one entry per line, because `ingot` reads it as
+text (a POSIX sh script with no JSON parser — `category_for()` seds the line).
+
+The re-read at the end is not ceremony. The first version of this generator
+wrote every entry and then stopped, one byte short of the closing brace: valid
+enough for `ingot`'s line reader, invalid JSON for `jq`, a browser, or anything
+else. `index.json` shipped that way once.
+
+The other half is the release itself:
+
+    python3 tools/audit.py           # every page vs the asset it points at
+
+It resolves each page's URL, lists that release's assets, and checks the name,
+size and `sha256` against what GitHub reports, then reports assets no page
+names — a payload published and never offered, or removed from the pages and
+left behind. It uses `GITHUB_TOKEN`/`GH_TOKEN` if set and works unauthenticated
+if not.
+
 ## Adding a package
 
 1. **Stage and build the tarball.** Contents extract relative to `/`; use
@@ -370,9 +402,13 @@ is plain files with no runtime to satisfy.)
          "depends": []
        }
 
-5. **Add the name to `index.json`**, on its own line:
+5. **Regenerate `index.json`** — the generator reads the pages, so this is one
+   command, not an edit:
 
-       "hello": "tools",
+       python3 tools/index.py
+
+   No page, no entry. Hand-editing the index is how it drifted out of step with
+   the pages before.
 
 6. **Commit and push.** GitHub Pages republishes from `main` (root) within a
    minute or so.
