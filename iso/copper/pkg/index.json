@@ -59,6 +59,7 @@
   "pciutils": "tools",
   "pkg-config": "tools",
   "pv": "tools",
+  "python3": "tools",
   "ripgrep": "tools",
   "ristretto": "tools",
   "rsync": "tools",

@@ -1,0 +1,9 @@
+{
+  "name": "python3",
+  "version": "3.12.3-0ubuntu2.1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/python3-3.12.3-0ubuntu2.1.tar.gz",
+  "sha256": "c14fbf8f46c06b4538adfe4c65d9e477e54ed3b70b398d6afb97f9bbd2e93c2b",
+  "size": 30883371,
+  "depends": ["ncurses-base"]
+}

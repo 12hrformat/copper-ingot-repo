@@ -172,6 +172,7 @@ order does not matter; field **names** must match exactly.
 | pciutils | tools | 1:3.10.0-2build1 | — |
 | pkg-config | tools | 1.8.1-2build1 | — |
 | pv | tools | 1.8.5-2build1 | — |
+| python3 | tools | 3.12.3-0ubuntu2.1 | ncurses-base |
 | ripgrep | tools | 14.1.0-1 | — |
 | ristretto | tools | 0.13.1-1build2 | — |
 | rsync | tools | 3.2.7-1ubuntu1.5 | — |
@@ -440,6 +441,55 @@ place those glyphs matter most.
 `fonts-noto-cjk` is not packaged yet: it is a different order of payload (CJK
 faces, several hundred MB installed) and nothing in a default session asks for
 it. When it is wanted, it is the same `dpkg-deb -x` + `tar -czf` flow.
+
+### The seventh batch: Python, and the libraries it carries
+
+One package, `python3`: 43 noble debs unpacked into a single payload, 30.9 MB
+compressed and 77 MB installed. `ingot install python3` leaves `python3.12`
+(3.12.3-1ubuntu0.17), its stdlib and shared libraries, `pip` 24.0,
+`setuptools` 68.1.2, `wheel` 0.42.0 and `python3.12-venv`'s `ensurepip`
+wheels behind — enough to run a script, `pip install`, or `python3 -m venv`
+without a second download.
+
+| package | category | what you type | the closure carries |
+| --- | --- | --- | --- |
+| python3 | tools | `python3`, `python`, `pip`, `pip3` | python3.12, libpython3.12t64/stdlib/minimal, libexpat1, libffi8, libbz2-1.0, libdb5.3t64, libcrypt1, libncursesw6, libtinfo6, media-types, netbase, tzdata |
+
+The debs are the **full dependency closure**, the same rule the first deb
+batch set: apt resolves against an empty dpkg status, so everything the
+interpreter links against is in the tarball rather than assumed on the target.
+That includes noble's libc6 and loader, exactly as `nano`'s payload has carried
+them since the first batch. `depends` is `["ncurses-base"]` and nothing else:
+terminfo is read at runtime by readline and curses, and it is Essential in
+Debian, so a closure walk never pulls it in — the same exception `nano`,
+`less`, `htop`, `ncdu`, `tmux` and `zsh` already make.
+
+The payload adds `usr/bin/python -> python3`. Debian deliberately leaves bare
+`python` unowned, but it is the name a person types first, and this is a
+distro-level alias, not a Debian compatibility promise. It is a relative
+symlink in the tarball because nothing runs `postinst` here.
+
+One page rather than a page per deb, on purpose: `python3` is the thing a
+person installs, and the closure rule means it arrives self-contained. A
+separate `libpython3.12-stdlib` page would offer a library nobody installs on
+its own while `python3` still had to carry it.
+
+Not in this batch: `python3.12-dev`/`libpython3.12-dev` (the noble dev packages
+pull `libc6-dev` and `linux-libc-dev`; those headers belong to the toolchain,
+not a payload), `python3-tk` (Tk plus the X libraries), `python3-gdbm` (only
+`dbm.gnu`; `dbm.ndbm` and `dbm.dumb` work from the stdlib), and
+`idle-python3.12`. Any of them can be a follow-up payload; none is needed to
+run the interpreter, pip or a venv.
+
+Verified by chrooting into the extracted tree (`/lib64` pointed at `usr/lib64`
+for the test, then removed): `python3 -V` reports 3.12.3, `ssl`, `ctypes`,
+`sqlite3`, `readline`, `bz2`, `lzma`, `zlib`, `curses`, `hashlib`, `decimal`,
+`uuid`, `venv`, `ensurepip` and `pip` all import, `pip --version` reports 24.0,
+and `python3 -m venv /tmp/v` followed by `/tmp/v/bin/python -m pip --version`
+reports the venv's own pip. Every `NEEDED` entry of every
+`lib-dynload/*.so` resolves inside the payload, the tarball carries no absolute
+or `..` paths, and the `sha256` is of the bytes actually uploaded. Like the
+other deb batches, it has not been boot-tested on a running image.
 
 ## Deliberately not packaged
 
