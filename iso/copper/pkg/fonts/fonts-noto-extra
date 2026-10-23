@@ -1,0 +1,9 @@
+{
+  "name": "fonts-noto-extra",
+  "version": "20201225-2",
+  "category": "fonts",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/fonts-noto-extra-20201225-2.tar.gz",
+  "sha256": "386d6361e20a9e389fb4d0402d3e3c11a27769e4de3d360340cc16842e312a1f",
+  "size": 163412323,
+  "depends": []
+}

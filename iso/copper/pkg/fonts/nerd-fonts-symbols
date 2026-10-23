@@ -1,0 +1,9 @@
+{
+  "name": "nerd-fonts-symbols",
+  "version": "3.5.1",
+  "category": "fonts",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/nerd-fonts-symbols-3.5.1.tar.gz",
+  "sha256": "2b533582c5493694d59e95000599bae2a398b4ee1b767f04646cad84f66650b4",
+  "size": 3057109,
+  "depends": []
+}

@@ -107,6 +107,8 @@ order does not matter; field **names** must match exactly.
 | package | category | version | depends |
 | --- | --- | --- | --- |
 | hypr-configs | desktop | 9c2e40f | — |
+| fonts-noto-extra | fonts | 20201225-2 | — |
+| nerd-fonts-symbols | fonts | 3.5.1 | — |
 | john | hacking | 1.9.0-2build1 | — |
 | nmap | hacking | 7.95-1 | libpcap |
 | libfuse2t64 | libs | 2.9.9-8.1build1 | — |
@@ -388,6 +390,57 @@ Two of these have a history here rather than a wish list behind them:
   `xfce4-notifyd`'s closures pull it in, which is how it was noticed — but
   `ingot install screen` had nothing to install. It does now.
 
+### The sixth batch: the fonts, which are printed rather than typed
+
+The ISO already carries a working font stack (JetBrains Mono, Hack, Fira Code,
+DejaVu, Liberation, Noto core and mono, Noto Color Emoji, Symbola, Powerline,
+Font Awesome), and the VGA console has a 512-glyph PSF, so the `─` in
+fastfetch's config stops printing as `?`. What that stack cannot draw is the
+long tail:
+
+| package | category | what it is | installed | payload |
+| --- | --- | --- | --- | --- |
+| fonts-noto-extra | fonts | 1,540 Noto face files (67 families) for the scripts the core set leaves out | 329 MB | 163 MB |
+| nerd-fonts-symbols | fonts | Symbols Nerd Font and Symbols Nerd Font Mono, plus upstream's fontconfig alias | 5 MB | 3 MB |
+
+`fonts-noto-extra` is the noble `20201225-2` deb, unpacked with `dpkg-deb -x`,
+its `/usr/share/doc` kept and its `reportbug` presubj dropped: no dpkg runs on
+the target, so a bug script for a package dpkg has never heard of is only
+noise. It has no `Depends`, and it adds faces `fonts-noto-core` does not ship,
+which is why the payload is additive rather than a replacement.
+
+`nerd-fonts-symbols` is the SymbolsOnly zip from nerd-fonts `v3.5.1`, copied
+unmodified. Symbols-only is on purpose: patching every terminal face into a
+nerd build means a download per family and a font-choice decision, while one
+symbols font works as a per-glyph fallback for whatever monospace face is
+already selected. Its cmap carries the codepoints the icon-mode UIs ask for —
+Powerline `U+E0B0`/`U+E0B2`, Devicons `U+E5FA`, Font Awesome `U+F121`, Material
+`U+F0001` — and deliberately not box drawing, which stays with the text faces.
+The payload also installs upstream's
+`etc/fonts/conf.d/10-nerd-font-symbols.conf`, whose aliases put the symbols font
+late in the fallback list for the monospace family. It does not hijack the
+primary face: with it loaded, `fc-match monospace` still resolves to the normal
+monospace font, and the symbols font only shows up further down
+`fc-match -s monospace`.
+
+Neither package has a command to run, so they are verified differently from the
+rest: both tarballs carry only relative `usr/...`/`etc/...` paths, their
+`sha256` was computed from the bytes actually uploaded, `fc-scan` reads every
+face back out of the extracted tree, and a scratch-root install puts the fonts
+under `<root>/usr/share/fonts/truetype/`. There is no `postinst` to refresh the
+fontconfig cache, and none is needed — fontconfig re-reads a directory when its
+mtime changes, so a font installed into a live system is picked up by the next
+process. `fc-cache -f` is the manual version if anything looks stale.
+
+The VGA console font is deliberately **not** a package. The kernel console draws
+before `ingot` can run, so `Uni2-VGA16.psf` is baked into the ISO's rootfs
+overlay and loaded by `copper-init`; a package would arrive too late for the one
+place those glyphs matter most.
+
+`fonts-noto-cjk` is not packaged yet: it is a different order of payload (CJK
+faces, several hundred MB installed) and nothing in a default session asks for
+it. When it is wanted, it is the same `dpkg-deb -x` + `tar -czf` flow.
+
 ## Deliberately not packaged
 
 `hyprland` is a Wayland compositor, not an application: it needs a running
@@ -457,8 +510,9 @@ if not.
    becomes `7zip-23.01.dfsg-11.tar.gz` and the page's URL 404s), and `gh`
    eventually times out with `HTTP 408: Upload body timed out due to
    inactivity` on the ~70 MB payloads, where `curl --retry 10
-   --retry-all-errors --data-binary @file` succeeds. Delete any same-named
-   asset first; `curl` has no `--clobber`.
+   --retry-all-errors --data-binary @file` succeeds (the 163 MB
+   `fonts-noto-extra` payload is the current worst case, and it went up that
+   way). Delete any same-named asset first; `curl` has no `--clobber`.
 
 3. **Compute the sha256 of the exact asset bytes** (the file you just
    uploaded — hash it locally, don't rebuild after hashing):
