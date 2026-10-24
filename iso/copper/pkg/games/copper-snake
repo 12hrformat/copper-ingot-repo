@@ -1,0 +1,9 @@
+{
+  "name": "copper-snake",
+  "version": "1.0-1",
+  "category": "games",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/snake-1.0-1.tar.gz",
+  "sha256": "42913dee4e1e5aaefa2831a2634a7002a333f1f2da00a83b548d42c15d09404d",
+  "size": 649,
+  "depends": []
+}
