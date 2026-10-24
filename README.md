@@ -106,7 +106,6 @@ order does not matter; field **names** must match exactly.
 
 | package | category | version | depends |
 | --- | --- | --- | --- |
-| copper-theme-installer | desktop | 0.1.0 | — |
 | hypr-configs | desktop | 9c2e40f | — |
 | fonts-noto-extra | fonts | 20201225-2 | — |
 | nerd-fonts-symbols | fonts | 3.5.1 | — |
@@ -166,6 +165,7 @@ order does not matter; field **names** must match exactly.
 | make | tools | 4.3-4.1build2 | — |
 | mawk | tools | 1.3.4.20240123-1build1 | — |
 | mc | tools | 3:4.8.30-1ubuntu0.1 | — |
+| meson | tools | 1.3.2-1ubuntu1 | python3 |
 | mousepad | tools | 0.6.1-1build2 | — |
 | mpv | tools | 0.37.0-1ubuntu4 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
@@ -198,6 +198,11 @@ order does not matter; field **names** must match exactly.
 | zip | tools | 3.0-13ubuntu0.2 | — |
 | zoxide | tools | 0.9.3-1 | — |
 | zsh | tools | 5.9-6ubuntu2 | ncurses-base |
+
+`meson` is the noble 1.3.2 deb bundled with `ninja-build` and
+`libstdc++6`, because meson's default backend is ninja and ninja links
+libstdc++ at runtime. Its page depends on `python3` rather than duplicating
+the interpreter and stdlib that are already packaged here.
 
 All payloads are x86_64 Linux (glibc). They come from two build styles:
 
