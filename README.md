@@ -106,6 +106,7 @@ order does not matter; field **names** must match exactly.
 
 | package | category | version | depends |
 | --- | --- | --- | --- |
+| copper-theme-installer | desktop | 0.1.0 | — |
 | hypr-configs | desktop | 9c2e40f | — |
 | fonts-noto-extra | fonts | 20201225-2 | — |
 | nerd-fonts-symbols | fonts | 3.5.1 | — |

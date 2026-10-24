@@ -1,0 +1,9 @@
+{
+  "name": "copper-theme-installer",
+  "version": "0.1.0",
+  "category": "desktop",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/copper-theme-installer-0.1.0.tar.gz",
+  "size": 19435747,
+  "sha256": "1912c8259e350fe151445eecc10a2b64af34e0802b30c32068b6af28c6388acb",
+  "depends": []
+}
