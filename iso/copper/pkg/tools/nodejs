@@ -1,0 +1,9 @@
+{
+  "name": "nodejs",
+  "version": "20.19.5",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/nodejs-20.19.5.tar.gz",
+  "size": 47185920,
+  "sha256": "0837186a8fd9a96cbaf4d275c761b30d97f448ee03c9185a6fe3c797f3beb823",
+  "depends": []
+}
