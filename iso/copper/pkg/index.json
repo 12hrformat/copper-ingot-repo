@@ -23,6 +23,7 @@
   "galculator": "tools",
   "git": "tools",
   "glib-compile-schemas": "tools",
+  "gsettings": "tools",
   "htop": "tools",
   "hyperfine": "tools",
   "hypr-configs": "desktop",
