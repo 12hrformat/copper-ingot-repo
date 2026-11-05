@@ -1,0 +1,9 @@
+{
+  "name": "lm-sensors",
+  "version": "1:3.6.0-9build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/lm-sensors-1_3.6.0-9build1.tar.gz",
+  "size": 18150543,
+  "sha256": "fc48ae46b50d56a85d3f30d8f7f6041cd0f728bf9fa64c6f577ec6903427fac9",
+  "depends": []
+}

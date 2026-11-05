@@ -1,0 +1,9 @@
+{
+  "name": "procps",
+  "version": "2:4.0.4-4ubuntu3.3",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/procps-2_4.0.4-4ubuntu3.3.tar.gz",
+  "size": 8125001,
+  "sha256": "a7213d7ebcb48e09fdb2c1cde70b1c8c98bf553f2f9673c5abde237dc9be633d",
+  "depends": ["ncurses-base"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "sysstat",
+  "version": "12.6.1-2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/sysstat-12.6.1-2.tar.gz",
+  "size": 6448513,
+  "sha256": "42cbdeb38fb4d4c7f74acf9433976f6c7de9d226468e20841744b4f034b0b80b",
+  "depends": []
+}

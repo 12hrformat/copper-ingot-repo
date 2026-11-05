@@ -1,0 +1,9 @@
+{
+  "name": "git-delta",
+  "version": "0.16.5-5",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/git-delta-0.16.5-5.tar.gz",
+  "size": 12246279,
+  "sha256": "126e5f0e1de27ab09497b768fb2012b9c403358949c9c115c284271127519708",
+  "depends": []
+}

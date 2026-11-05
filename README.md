@@ -130,22 +130,27 @@ order does not matter; field **names** must match exactly.
 | iproute2 | network | 6.1.0-1ubuntu6.4 | — |
 | mtr-tiny | network | 0.95-1.1ubuntu0.1 | — |
 | netcat-openbsd | network | 1.226-1ubuntu2 | — |
+| nftables | network | 1.0.9-1ubuntu0.1 | — |
 | openssh-client | network | 1:9.6p1-3ubuntu13.20 | — |
 | socat | network | 1.8.0.0-4ubuntu0.1 | — |
 | sshpass | network | 1.09-1 | — |
 | tcpdump | network | 4.99.7-1 | libpcap |
 | traceroute | network | 1:2.1.5-1 | — |
 | whois | network | 5.5.22 | — |
+| wireguard-tools | network | 1.0.20210914-1ubuntu4 | bash, iproute2, procps |
 | 7zip | tools | 23.01+dfsg-11 | — |
 | atril | tools | 1.26.2-3build2 | — |
+| bash | tools | 5.2.21-2ubuntu4 | ncurses-base |
 | bat | tools | 0.24.0-1build1 | — |
 | bc | tools | 1.07.1-3ubuntu4 | — |
+| binutils | tools | 2.42-4ubuntu2.10 | — |
 | btop | tools | 1.3.0-1 | — |
 | cmatrix | tools | 2.0-6 | — |
 | cowsay | tools | 3.03+dfsg2-8 | — |
 | curl | tools | 8.5.0-2ubuntu10.15 | — |
 | dos2unix | tools | 7.5.1-1 | — |
 | duf | tools | 0.8.1-1ubuntu0.24.04.3 | — |
+| eza | tools | 0.18.2-1 | — |
 | fastfetch | tools | 2.69.0 | — |
 | fd-find | tools | 9.0.0-1 | — |
 | feh | tools | 3.10.1-1ubuntu0.1 | — |
@@ -155,23 +160,35 @@ order does not matter; field **names** must match exactly.
 | fortune-mod | tools | 1:1.99.1-7.3build1 | — |
 | fzf | tools | 0.44.1-1ubuntu0.3 | — |
 | galculator | tools | 2.1.4-1.2build2 | — |
+| gddrescue | tools | 1.27-1 | — |
+| gh | tools | 2.45.0-1ubuntu0.3 | — |
 | git | tools | 1:2.43.0-1ubuntu7.3 | — |
+| git-delta | tools | 0.16.5-5 | — |
+| glib-compile-schemas | tools | 2.90.0-1 | — |
+| gsettings | tools | 2.90.0-2 | — |
 | htop | tools | 3.3.0-4build1 | ncurses-base |
 | hyperfine | tools | 1.18.0-2build1 | — |
 | jq | tools | 1.7.1-3ubuntu0.24.04.2 | — |
 | less | tools | 590-2ubuntu2.1 | ncurses-base |
+| lm-sensors | tools | 1:3.6.0-9build1 | — |
 | lolcat | tools | 100.0.1-3 | — |
 | lsof | tools | 4.95.0-1build3 | — |
 | make | tools | 4.3-4.1build2 | — |
 | mawk | tools | 1.3.4.20240123-1build1 | — |
 | mc | tools | 3:4.8.30-1ubuntu0.1 | — |
 | meson | tools | 1.3.2-1ubuntu1 | python3 |
+| micro | tools | 2.0.13-1 | — |
 | mousepad | tools | 0.6.1-1build2 | — |
 | mpv | tools | 0.37.0-1ubuntu4 | — |
 | nano | tools | 7.2-2ubuntu0.2 | ncurses-base |
 | ncdu | tools | 1.19-0.1 | ncurses-base |
+| neovim | tools | 0.9.5-6ubuntu2 | ncurses-base |
+| nodejs | tools | 20.19.5 | — |
+| parted | tools | 3.6-4build1 | ncurses-base |
 | pciutils | tools | 1:3.10.0-2build1 | — |
 | pkg-config | tools | 1.8.1-2build1 | — |
+| procps | tools | 2:4.0.4-4ubuntu3.3 | ncurses-base |
+| psmisc | tools | 23.7-1build1 | — |
 | pv | tools | 1.8.5-2build1 | — |
 | python3 | tools | 3.12.3-0ubuntu2.1 | ncurses-base |
 | ripgrep | tools | 14.1.0-1 | — |
@@ -180,8 +197,10 @@ order does not matter; field **names** must match exactly.
 | screen | tools | 4.9.1-1ubuntu1 | — |
 | shellcheck | tools | 0.9.0-1 | — |
 | sl | tools | 5.02-1 | — |
+| smartmontools | tools | 7.4-2build1 | — |
 | sqlite3 | tools | 3.45.1-1ubuntu2.8 | — |
 | strace | tools | 6.8-0ubuntu2 | — |
+| sysstat | tools | 12.6.1-2 | — |
 | thunar-archive-plugin | tools | 0.5.2-1build2 | xarchiver |
 | tmux | tools | 3.4-1ubuntu0.1 | ncurses-base |
 | toilet | tools | 0.3-1.4build1 | — |
@@ -497,6 +516,83 @@ reports the venv's own pip. Every `NEEDED` entry of every
 or `..` paths, and the `sha256` is of the bytes actually uploaded. Like the
 other deb batches, it has not been boot-tested on a running image.
 
+### The eighth batch: the basics
+
+Sixteen packages. The earlier batches filled in a desktop, a network toolkit and
+a hacking shelf; this one is the layer underneath all of them — the commands a
+person reaches for before they know what they are looking for.
+
+| package | category | what you type |
+| --- | --- | --- |
+| bash | tools | `bash` |
+| procps | tools | `ps`, `top`, `free`, `pgrep`, `pkill`, `watch`, `uptime`, `vmstat`, `sysctl` |
+| psmisc | tools | `pstree`, `killall`, `fuser` |
+| neovim | tools | `nvim` |
+| micro | tools | `micro` |
+| eza | tools | `eza`, `exa` |
+| git-delta | tools | `delta` |
+| gh | tools | `gh` |
+| binutils | tools | `readelf`, `objdump`, `nm`, `strings`, `ar` |
+| sysstat | tools | `sar`, `iostat`, `mpstat`, `pidstat`, `tapestat` |
+| smartmontools | tools | `smartctl` |
+| lm-sensors | tools | `sensors` |
+| parted | tools | `parted` |
+| gddrescue | tools | `ddrescue` |
+| nftables | network | `nft` |
+| wireguard-tools | network | `wg`, `wg-quick` |
+
+`bash` is the one that changes what can run at all. `neofetch` was dropped from
+this repo because the image had no bash, and the fix then was to pick a
+compiled binary instead; the gap itself stayed. The payload also has to create
+`/bin/bash`: the image's `/bin` is busybox's real directory, not Ubuntu's
+`usr`-merged symlink, so a file at `usr/bin/bash` alone does not satisfy a
+`#!/bin/bash` shebang. The payload writes that relative symlink itself, the same
+way the `update-alternatives` renames above are handled.
+
+`procps` and `psmisc` replace the busybox applets where the applet stops being
+enough (`ps aux`, a live `top`, `pgrep -f`, `pstree`). `procps` also supplies
+`sysctl` from `/usr/sbin`, so its payload aliases it into `/usr/bin`. The same
+aliasing puts `smartctl`, `nft`, `parted` and `sar` (shipped as `sar.sysstat`)
+on the default `PATH`; nothing runs `postinst`, so the payload is the only place
+those names can come from.
+
+`neovim` and `micro` are the two editors a person is likely to type before
+`vim`; `eza` and `git-delta` are the modern `ls` and the diff pager that make
+`git log` readable; `gh` is the CLI for the site the whole project lives on.
+`binutils` adds `readelf`, `objdump`, `nm`, `strings` and `ar`, which the image
+never had: `file` could say what a binary is, but nothing could show what is
+inside it.
+
+`sysstat`, `smartmontools` and `lm-sensors` answer three different versions of
+"what is this machine doing": `iostat`/`sar` for load over time, `smartctl` for
+the disk's own health, `sensors` for temperature and fans. `parted` and
+`gddrescue` are the disk pair — partition it, then rescue what is on it before
+anything else touches it.
+
+`nftables` and `wireguard-tools` are the two network basics that were missing.
+`wg` is a compiled binary; `wg-quick` is a bash script that calls `ip` and
+`sysctl`, so its page declares all three (`bash`, `iproute2`, `procps`). A
+config that sets `DNS=` also needs `resolvconf`, which is not packaged — the
+interface comes up, the DNS line does not.
+
+Three notes on what the payloads carry:
+
+- `bash`, `neovim`, `parted` and `procps` depend on `ncurses-base` for the same
+  reason as the ncurses programs above: readline and `top` read terminfo at
+  runtime, and terminfo is `Essential: yes`, so the closure walk never pulls it.
+- `micro`'s upstream package declares no `Depends` at all even though the binary
+  is dynamically linked; the payload carries `libc6` itself rather than trusting
+  the target to have a glibc.
+- `lm-sensors` carries Perl, because `sensors-detect` is a Perl program. `sensors`
+  itself is C and does not need it; the package is the unit, so the interpreter
+  comes along.
+
+Every command was run from the extracted tree through the payload's own loader
+(scripts through bash), every `NEEDED` entry resolves inside the tarball, the
+tarballs carry no absolute or `..` paths, and each `sha256` is of the bytes that
+were uploaded. Like the other deb batches, it has not been boot-tested on a
+running image.
+
 ## Deliberately not packaged
 
 `hyprland` is a Wayland compositor, not an application: it needs a running
@@ -526,6 +622,13 @@ The re-read at the end is not ceremony. The first version of this generator
 wrote every entry and then stopped, one byte short of the closing brace: valid
 enough for `ingot`'s line reader, invalid JSON for `jq`, a browser, or anything
 else. `index.json` shipped that way once.
+
+The generator now also rejects a package page whose fields do not start their
+own lines. A minified page is valid JSON and invisible to `ingot`, whose `jget`
+is a sed line matcher: `gsettings` shipped that way, so every field `ingot`
+looked for came back empty and the package could not install. Its page is now
+written one field per line with the same url, size and sha256, and
+`tools/index.py --check` fails on the next one.
 
 The other half is the release itself:
 

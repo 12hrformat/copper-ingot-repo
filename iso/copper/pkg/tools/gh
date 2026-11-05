@@ -1,0 +1,9 @@
+{
+  "name": "gh",
+  "version": "2.45.0-1ubuntu0.3",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/gh-2.45.0-1ubuntu0.3.tar.gz",
+  "size": 16143228,
+  "sha256": "9adb8e65e1638a361110b661639f2b9d44930f6e330a528640e55534f989502c",
+  "depends": []
+}

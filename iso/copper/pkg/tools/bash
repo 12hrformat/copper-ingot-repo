@@ -1,0 +1,9 @@
+{
+  "name": "bash",
+  "version": "5.2.21-2ubuntu4",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/bash-5.2.21-2ubuntu4.tar.gz",
+  "size": 6290396,
+  "sha256": "502380b73c6362e0a97107512718cb943616ee1587c1c6612b7561cb2ad35150",
+  "depends": ["ncurses-base"]
+}

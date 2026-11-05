@@ -1,0 +1,9 @@
+{
+  "name": "eza",
+  "version": "0.18.2-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/eza-0.18.2-1.tar.gz",
+  "size": 9885004,
+  "sha256": "9e452dbcdd3bb6ce0ce75588b49f088f5f61a3091d56d1c130db328d2a333999",
+  "depends": []
+}

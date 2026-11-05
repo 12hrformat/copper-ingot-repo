@@ -1,0 +1,9 @@
+{
+  "name": "binutils",
+  "version": "2.42-4ubuntu2.10",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/binutils-2.42-4ubuntu2.10.tar.gz",
+  "size": 12615348,
+  "sha256": "5fae841e7d5d7e2bd2003fad1c7e92a1f0372e1c940229d1cd5e8779407a8803",
+  "depends": []
+}

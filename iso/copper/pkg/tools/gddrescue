@@ -1,0 +1,9 @@
+{
+  "name": "gddrescue",
+  "version": "1.27-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/gddrescue-1.27-1.tar.gz",
+  "size": 6377436,
+  "sha256": "e5a0f0346e5571d36853fa0e7245ecdced32c52c46b35c56a21ca5bb7b7db063",
+  "depends": []
+}

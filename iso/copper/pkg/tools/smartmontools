@@ -1,0 +1,9 @@
+{
+  "name": "smartmontools",
+  "version": "7.4-2build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/smartmontools-7.4-2build1.tar.gz",
+  "size": 9102934,
+  "sha256": "2ee9deb9ee56556c0d7e9fea6a03da749b10d9655187f6a2b29ac6726fd45b83",
+  "depends": []
+}

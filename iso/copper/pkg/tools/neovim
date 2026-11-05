@@ -1,0 +1,9 @@
+{
+  "name": "neovim",
+  "version": "0.9.5-6ubuntu2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/neovim-0.9.5-6ubuntu2.tar.gz",
+  "size": 14885406,
+  "sha256": "34772fd6c9df07f7de6d197e148dbdc22c6978019d3ec799fe7b06b71220931b",
+  "depends": ["ncurses-base"]
+}

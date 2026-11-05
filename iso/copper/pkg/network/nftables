@@ -1,0 +1,9 @@
+{
+  "name": "nftables",
+  "version": "1.0.9-1ubuntu0.1",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/nftables-1.0.9-1ubuntu0.1.tar.gz",
+  "size": 6493089,
+  "sha256": "f9c6aed28edf311b6261bb3216fa3d1dd1a58ed6735af6690482d73e4ab2b40a",
+  "depends": []
+}

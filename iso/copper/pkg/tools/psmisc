@@ -1,0 +1,9 @@
+{
+  "name": "psmisc",
+  "version": "23.7-1build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/psmisc-23.7-1build1.tar.gz",
+  "size": 5609409,
+  "sha256": "62a9e079c26810c5f9d19f73cf85c690d5a1d6a52b07556fcd9166857a086102",
+  "depends": []
+}

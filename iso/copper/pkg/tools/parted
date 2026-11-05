@@ -1,0 +1,9 @@
+{
+  "name": "parted",
+  "version": "3.6-4build1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/parted-3.6-4build1.tar.gz",
+  "size": 6821265,
+  "sha256": "5b7fb94ecb5aba3bae14d66b2e85f59df5b33aabdf9ffb4be59f9d87ff8468d8",
+  "depends": ["ncurses-base"]
+}

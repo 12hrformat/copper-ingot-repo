@@ -1,0 +1,9 @@
+{
+  "name": "wireguard-tools",
+  "version": "1.0.20210914-1ubuntu4",
+  "category": "network",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/wireguard-tools-1.0.20210914-1ubuntu4.tar.gz",
+  "size": 5398967,
+  "sha256": "9356d0272536f08e6c156572d278ddfdf009247eaab41e2b430a460d891604c0",
+  "depends": ["bash", "iproute2", "procps"]
+}

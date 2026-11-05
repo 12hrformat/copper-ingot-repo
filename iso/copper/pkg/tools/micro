@@ -1,0 +1,9 @@
+{
+  "name": "micro",
+  "version": "2.0.13-1",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/micro-2.0.13-1.tar.gz",
+  "size": 10297637,
+  "sha256": "517707fe71462baf825f386eaeb7dd7660d80be8741ef2dc9734e208c1f1207a",
+  "depends": []
+}
