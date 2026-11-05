@@ -37,6 +37,17 @@ def problem(msg):
     problems.append(msg)
 
 
+def line_shape_ok(text):
+    """ingot reads a page with sed line matchers, so every field must start a
+    line (see jget()/depends_of() in copper's ingot). A minified page is valid
+    JSON and still uninstallable, which is exactly the failure this catches."""
+    for key in ("name", "version", "category", "url", "size", "sha256"):
+        if not re.search(r'^[ \t]*"%s"[ \t]*:' % key, text, re.M):
+            return False
+    dep = re.search(r'^[ \t]*"depends"[ \t]*:[ \t]*(.*)$', text, re.M)
+    return dep is None or "[" in dep.group(1) and "]" in dep.group(1)
+
+
 def load_pages():
     """Every page, as {name: (category, page)}. Reports what it cannot read."""
     pages = {}
@@ -50,13 +61,17 @@ def load_pages():
 
             try:
                 with open(path, encoding="utf-8") as fh:
-                    page = json.load(fh)
+                    text = fh.read()
+                page = json.loads(text)
             except ValueError as exc:
                 problem("BAD json: %s (%s)" % (rel, exc))
                 continue
             if not isinstance(page, dict):
                 problem("BAD json: %s is not an object" % rel)
                 continue
+            if not line_shape_ok(text):
+                problem("BAD shape: %s is not one-key-per-line (ingot's jget "
+                        "is a sed line matcher, not a JSON parser)" % rel)
 
             if page.get("name") != name:
                 problem("BAD name: %s says name=%r" % (rel, page.get("name")))

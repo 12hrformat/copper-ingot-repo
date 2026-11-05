@@ -1,1 +1,9 @@
-{  "name": "gsettings",  "version": "2.90.0-2",  "category": "tools",  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/gsettings-2.90.0-2.tar.gz",  "size": 2443233,  "sha256": "a5dbb73b6d0adf65370df2bf02e5d934fb6425169dcf8671729a6a5be11ade1a",  "depends": []}
+{
+  "name": "gsettings",
+  "version": "2.90.0-2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/gsettings-2.90.0-2.tar.gz",
+  "size": 2326589,
+  "sha256": "a5dbb73b6d0adf65370df2bf02e5d934fb6425169dcf8671729a6a5be11ade1a",
+  "depends": []
+}
