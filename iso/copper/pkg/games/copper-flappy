@@ -1,0 +1,9 @@
+{
+  "name": "copper-flappy",
+  "version": "1.0-1",
+  "category": "games",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/copper-flappy-1.0-1.tar.gz",
+  "sha256": "a52f4d700c7455ddbea93cbe21142fdd4546a650c048d5460f74f642fb7a693c",
+  "size": 734,
+  "depends": ["python3"]
+}
