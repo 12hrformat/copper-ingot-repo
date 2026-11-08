@@ -1,0 +1,9 @@
+{
+  "name": "niri-configs",
+  "version": "fdab48c",
+  "category": "desktop",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/niri-configs-fdab48c.tar.gz",
+  "size": 4154,
+  "sha256": "0016b11ea839aa13ee8d2affc9f409c87c96ab45eb2ee05d78a762c0a5d5ffa0",
+  "depends": []
+}
