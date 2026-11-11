@@ -1,0 +1,9 @@
+{
+  "name": "code",
+  "version": "1.145.2-1793945276",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/code-1.145.2.tar.gz",
+  "size": 377579061,
+  "sha256": "8155e665232079aae2b9702fa739cf5d5af0e1c7467607bd9dcf563e57cc1293",
+  "depends": []
+}

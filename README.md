@@ -142,10 +142,12 @@ order does not matter; field **names** must match exactly.
 | atril | tools | 1.26.2-3build2 | — |
 | bash | tools | 5.2.21-2ubuntu4 | ncurses-base |
 | bat | tools | 0.24.0-1build1 | — |
+| cava | tools | 0.7.4-1build2 | — |
 | bc | tools | 1.07.1-3ubuntu4 | — |
 | binutils | tools | 2.42-4ubuntu2.10 | — |
 | btop | tools | 1.3.0-1 | — |
 | cmatrix | tools | 2.0-6 | — |
+| code | tools | 1.145.2-1793945276 | — |
 | cowsay | tools | 3.03+dfsg2-8 | — |
 | curl | tools | 8.5.0-2ubuntu10.15 | — |
 | dos2unix | tools | 7.5.1-1 | — |
@@ -590,6 +592,44 @@ Every command was run from the extracted tree through the payload's own loader
 tarballs carry no absolute or `..` paths, and each `sha256` is of the bytes that
 were uploaded. Like the other deb batches, it has not been boot-tested on a
 running image.
+
+### The ninth batch: cava and VS Code
+
+Two packages, both desktop finishing moves:
+
+| package | category | what you type |
+| --- | --- | --- |
+| cava | tools | `cava` — the terminal audio visualizer |
+| code | tools | `code`, `code-tunnel` — VS Code |
+
+`cava` is the noble `0.7.4-1build2` deb, its whole tree: the binary, the example
+config and the `cava.psf` console font it ships. Every `NEEDED` entry of the
+binary — ALSA, pulse-simple, fftw3, ncursesw, iniparser, libc — is already on
+the image, because the gui stage's glibc/GTK stack carries those sonames, and
+terminfo lives under `/usr/share/terminfo` on the image too. So the payload is
+the deb tree alone and `depends` is empty.
+
+`code` is Microsoft's `1.145.2` deb (the one from their apt repo, not the
+tarball). The deb unpacks everything under `usr/share/code` and creates
+`usr/bin/code` in its `postinst`, so the payload adds that symlink itself —
+`usr/bin/code -> ../share/code/bin/code`, relative, the same rule the
+`update-alternatives` renames follow. Its `NEEDED` closure resolves against the
+image's GTK3/X11 stack with exactly one exception:
+`microsoft-authentication`'s `libmsalruntime.so` wants `libwebkit2gtk-4.1.so.0`,
+which the image does not ship. That one file is dropped from the payload rather
+than dragging the webkit2gtk closure in behind it — a hundred-plus megabytes for
+an authentication path — and without it VS Code's Microsoft login falls back to
+the browser/device-code flow, which needs no extra library.
+
+At 377 MB compressed (~1.1 GB installed) `code` is now the largest payload in
+the repo, past `atril`'s 243 MB. It is still one payload: the closure rule means
+`ingot install code` arrives able to run.
+
+Verified the same way as the other deb batches: every `NEEDED` entry resolves
+(inside the payload or against the image's shipped sonames, after the one
+documented drop), the tarballs carry no absolute or `..` paths, and each
+`sha256` is of the bytes actually uploaded. Not boot-tested on a running
+image.
 
 ## Deliberately not packaged
 

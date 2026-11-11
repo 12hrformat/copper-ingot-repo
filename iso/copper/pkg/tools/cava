@@ -1,0 +1,9 @@
+{
+  "name": "cava",
+  "version": "0.7.4-1build2",
+  "category": "tools",
+  "url": "https://github.com/12hrformat/copper-ingot-repo/releases/download/payloads-v1/cava-0.7.4-1build2.tar.gz",
+  "size": 86431,
+  "sha256": "3d165a16bde0b32c6b5b3376fd191ea862e5bc1dcd0d8dbb0da0f50eb0a1164d",
+  "depends": []
+}
